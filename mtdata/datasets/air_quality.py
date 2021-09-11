@@ -36,8 +36,24 @@ class AirQuality(Dataset):
         resp = requests.get(URL, PARAMS)
         data: List[Row] = resp.json()
 
-        # TODO: These need to be properly spliced / updated
-        new_data = old_data + data
+        filtered_data: List[Row] = []
+        if len(old_data) == 0:
+            new_data = data
+        else:
+            for row in data:
+                # Find the last reading from this site and compare its
+                # timestamp to the current one to avoid duplicates.
+                should_include = True
+                for old_row in reversed(old_data):
+                    if row['SiteName'] == old_row['SiteName']:
+                        if row['UTC'] == old_row['UTC']:
+                            should_include = False
+                        break
+
+                if should_include:
+                    filtered_data.append(row)
+
+            new_data = old_data + filtered_data
 
         with open(output_path, 'w') as data_file:
             json.dump(new_data, data_file, indent=2, sort_keys=True)
