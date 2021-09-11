@@ -5,5 +5,6 @@ set -e
 # Update dependencies. Run this whenever a dependency changes.
 
 pipenv lock --pre
+pipenv sync --pre
 pip freeze > requirements.txt
 
