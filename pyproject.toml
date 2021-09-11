@@ -1,0 +1,33 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.scripts]
+mtdata = "mtdata.__main__:main"
+
+[tool.flit.metadata]
+module = "mtdata"
+author = "George Lesica"
+author-email = "george@lesica.com"
+maintainer = "George Lesica"
+maintainer-email = "george@lesica.com"
+home-page = "https://github.com/glesica/mtdata"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3.9",
+    "Typing :: Typed",
+]
+description-file = "README.md"
+
+[tool.flit.sdist]
+exclude = [
+    ".gitignore",
+    ".github",
+    "Dockerfile*",
+    "data",
+    "tool",
+]
