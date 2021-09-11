@@ -16,4 +16,6 @@ COPY README.md ./
 RUN pip install --user -r requirements.txt
 RUN python -m flit install --user
 
-CMD ["python", "-m", "mtdata", "--out", "/data"]
+WORKDIR /home/mtdata
+
+CMD ["python", "-m", "mtdata"]
