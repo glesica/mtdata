@@ -1,0 +1,26 @@
+name: Scheduled run
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 0,6,12,18 * * *"
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    container:
+      image: glesica/mtdata:latest
+      volumes:
+        - ${{ github.workspace }}/data:/data
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Run tool
+        run: python -m mtdata --out /data
+      - name: Commit and push
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: data
+          author_name: Automated
+          author_email: actions@users.noreply.github.com
+          message: Update data
+          pathspec_error_handling: exitImmediately
+          pull_strategy: NO-PULL
