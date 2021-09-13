@@ -8,13 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: glesica/mtdata:latest
-      volumes:
-        - ${{ github.workspace }}:/workspace
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-      - name: Test /data
-        run: ls -la $GITHUB_WORKSPACE
       - name: Run tool
         run: python -m mtdata --out $GITHUB_WORKSPACE/data
       - name: Commit and push
