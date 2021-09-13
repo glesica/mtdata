@@ -2,20 +2,23 @@ FROM python:3.9.7-slim-bullseye
 
 VOLUME /data
 
+RUN apt-get update && apt-get install -y \
+        git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN mkdir /code
 WORKDIR /code
-
-RUN useradd --create-home mtdata
-USER mtdata
 
 COPY mtdata mtdata/
 COPY requirements.txt ./
 COPY pyproject.toml ./
 COPY README.md ./
 
-RUN pip install --user -r requirements.txt
-RUN python -m flit install --user
+RUN pip install -r requirements.txt
+RUN FLIT_ROOT_INSTALL=1 python -m flit install
 
-WORKDIR /home/mtdata
+RUN mkdir /work
+WORKDIR /work
 
 CMD ["python", "-m", "mtdata"]
