@@ -18,3 +18,9 @@ Extracted from https://www.airnowapi.org.
 
 Extracted from https://apps.missoulacounty.us/dailypublicreport/.
 
+## Adding a Dataset
+
+A dataset is implemented as a sub-class of the `Dataset` abstract class in the
+`datasets` module. Once the dataset is implemented, add a factory function in
+`manifest.py`. Once this is done, the new dataset will run when the `mtdata`
+module is run.
