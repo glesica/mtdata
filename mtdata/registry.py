@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List, Tuple, Iterable, NamedTuple
+from typing import List, Iterable, NamedTuple
 
 from mtdata.dataset import FetchStatus
 from mtdata.manifest import DatasetFactory, ALL_DATASETS

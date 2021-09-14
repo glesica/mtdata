@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import NamedTuple, Optional, Dict, List, Any
+from typing import NamedTuple, Optional, Dict, Any
 
 Row = Dict[Any, Any]
 
