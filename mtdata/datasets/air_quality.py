@@ -2,8 +2,9 @@ from typing import Optional, List
 
 from mtdata.dataset import Dataset, FetchStatus, Row
 
-URL = 'https://www.airnowapi.org/aq/data/'
-PARAMS = {
+_URL = 'https://www.airnowapi.org/aq/data/'
+
+_PARAMS = {
     'parameters': 'PM25',
     'BBOX': '-116.160889,44.298048,-103.416748,49.172497',
     'dataType': 'A',
@@ -33,7 +34,7 @@ class AirQuality(Dataset):
         except FileNotFoundError:
             old_data: List[Row] = []
 
-        resp = requests.get(URL, PARAMS)
+        resp = requests.get(_URL, _PARAMS)
         data: List[Row] = resp.json()
 
         filtered_data: List[Row] = []

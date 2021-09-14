@@ -1,10 +1,9 @@
-from typing import Optional, Any, Dict, List
+from typing import Optional, List
 
 from mtdata.dataset import Dataset, FetchStatus, Row
 from mtdata.transformer import Transformer
 
-URL = 'https://apps.missoulacounty.us/dailypublicreport/pinpoints.ashx'
-
+_URL = 'https://apps.missoulacounty.us/dailypublicreport/pinpoints.ashx'
 
 _transformer = Transformer()
 _transformer.add_field('agency', 'Agency')
@@ -43,7 +42,7 @@ class Missoula911(Dataset):
         except FileNotFoundError:
             old_data: List[Row] = []
 
-        resp = requests.get(URL, params)
+        resp = requests.get(_URL, params)
         data: List[Row] = [_transformer(p) for p in resp.json()]
 
         # Find the last old in the current data
