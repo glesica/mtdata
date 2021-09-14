@@ -1,19 +1,19 @@
 from typing import Optional, Any, Dict, List
 
 from mtdata.dataset import Dataset, FetchStatus, Row
+from mtdata.transformer import Transformer
 
 URL = 'https://apps.missoulacounty.us/dailypublicreport/pinpoints.ashx'
 
 
-def api_to_json(payload: Dict[str, Any]) -> Dict[str, Any]:
-    return {
-        'agency': payload['Agency'],
-        'cfs_number': payload['CFSNumber'],
-        'latitude': payload['Latitude'],
-        'longitude': payload['Longitude'],
-        'timestamp': payload['Description'].split(' / ')[0].strip(),
-        'title': payload['Title'],
-    }
+_transformer = Transformer()
+_transformer.add_field('agency', 'Agency')
+_transformer.add_field('cfs_number', 'CFSNumber')
+_transformer.add_field('latitude', 'Latitude')
+_transformer.add_field('longitude', 'Longitude')
+_transformer.add_field('timestamp', 'Description',
+                       lambda x: x.split(' / ')[0].strip())
+_transformer.add_field('title', 'Title')
 
 
 class Missoula911(Dataset):
@@ -44,7 +44,7 @@ class Missoula911(Dataset):
             old_data: List[Row] = []
 
         resp = requests.get(URL, params)
-        data: List[Row] = [api_to_json(p) for p in resp.json()]
+        data: List[Row] = [_transformer(p) for p in resp.json()]
 
         # Find the last old in the current data
         # Take only the current data after that index
