@@ -1,7 +1,11 @@
-from typing import Callable, Any, Optional, Dict
+from typing import Callable, Any, Optional, Dict, Tuple, Iterable, Union
 
-from mtdata.dataset import Row
 from mtdata.fields import rename_fields, prune_fields
+from mtdata.row import Row
+
+UpdaterFunction = Callable[[Any], Any]
+
+FieldSpecifier = Union[Tuple[str, str, UpdaterFunction], Tuple[str, str]]
 
 
 class Transformer:
@@ -27,9 +31,40 @@ class Transformer:
     _name_mapping: Dict[str, str]
     _update_functions: Dict[str, Callable[[Any], Any]]
 
-    def __init__(self):
+    def __init__(self, fields: Iterable[FieldSpecifier] = ()):
+        """
+        If the optional ``fields`` parameter is specified, it should
+        contain tuples of the following form:
+
+        ::
+
+            (new name, old name, value update function)
+
+        The value update function may be omitted and the identity
+        function will be used by default.
+
+        It is also possible to omit the old name if the name doesn't
+        need to change by setting it to ``None``.
+
+        >>> t = Transformer([
+        ...     ('a', 'A', lambda x: x.lower()),
+        ...     ('b', 'B'),
+        ...     ('c', None, lambda x: x.upper()),
+        ... ])
+        >>> t._name_mapping
+        {'A': 'a', 'B': 'b', 'c': 'c'}
+        >>> t._update_functions['a']('ABC')
+        'abc'
+        >>> t._update_functions['b']('ABC')
+        'ABC'
+        >>> t._update_functions['c']('abc')
+        'ABC'
+        """
         self._name_mapping = {}
         self._update_functions = {}
+
+        for field in fields:
+            self.add_field(*field)
 
     def __call__(self, row: Row) -> Row:
         rename_fields(row, self._name_mapping)
@@ -43,7 +78,7 @@ class Transformer:
     def add_field(self,
                   name: str,
                   old_name: Optional[str] = None,
-                  updater: Callable[[Any], Any] = lambda a: a) -> None:
+                  updater: UpdaterFunction = lambda a: a) -> None:
         """
         Add a field to the transformation.
 
