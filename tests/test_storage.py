@@ -1,6 +1,6 @@
 import tempfile
 
-from mtdata.storage import JsonLines, JsonArray
+from mtdata.storage import JsonLines
 
 DATA = [
     {
