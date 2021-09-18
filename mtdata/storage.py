@@ -126,9 +126,9 @@ class JsonLines(Storage):
         for _ in self.load(name):
             break
         else:
-            # There is no data (yet) so we can just
+            # There are no data (yet) so we can just
             # append all rows in data and return
-            pass
+            return self.replace(name, data)
 
         if facets:
             for row in data:
@@ -155,15 +155,19 @@ class JsonLines(Storage):
                 else:
                     filtered_data.append(row)
         else:
-            last_row = next(iter(self.load_backward(name)))
+            if dedup_fields:
+                last_row = next(iter(self.load_backward(name)))
 
-            for row in data:
-                equal = True
-                for field in fields:
-                    if row[field] != last_row[field]:
-                        equal = False
+                for row in data:
+                    equal = True
+                    for field in fields:
+                        if row[field] != last_row[field]:
+                            equal = False
 
-                if not equal:
+                    if not equal:
+                        filtered_data.append(row)
+            else:
+                for row in data:
                     filtered_data.append(row)
 
         with open(self.name_to_path(name), 'a') as file:
@@ -209,38 +213,6 @@ class JsonLines(Storage):
             success=True,
             message='',
         )
-
-
-class JsonArray(Storage):
-    """
-    A storage implementation that writes a JSON-formatted array containing
-    all of the row objects.
-
-    Note that due to the nature of Python's JSON parsing, this implementation
-    loads the entire dataset into memory on `load()` or `append()`. For this
-    reason, it should be used only for datasets that aren't expected to
-    become extremely large.
-    """
-    def append(self,
-               name: str,
-               data: Iterable[Row],
-               dedup_facets: Iterable[str],
-               dedup_fields: Iterable[str]) -> None:
-        # TODO: De-duplicate the data
-        self.replace(name, list(self.load(name)) + list(data))
-
-    def load(self, name: str) -> Iterable[Row]:
-        try:
-            with open(self.get_path(name, 'json'), 'r') as file:
-                import json
-                return json.load(file)
-        except FileNotFoundError:
-            return ()
-
-    def replace(self, name: str, data: Iterable[Row]) -> None:
-        with open(self.get_path(name, 'json'), 'w') as file:
-            import json
-            json.dump(list(data), file)
 
 
 class CSVBasic(Storage):
