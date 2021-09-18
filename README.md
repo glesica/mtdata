@@ -29,9 +29,6 @@ A dataset is implemented as a sub-class of the `Dataset` abstract class in the
 `manifest.py`. Once this is done, the new dataset will run when the `mtdata`
 module is run.
 
-<<<<<<< HEAD
-
-=======
 ## Development
 
 This project uses [Pipenv](https://pipenv.pypa.io/en/latest/). To install
@@ -54,4 +51,3 @@ The Docker image specified in `Dockerfile` bundles the code to make it easy
 to run Mt. Data in other environments. To build the container image based
 on the current version of the code, run `./tool/build-container`. To push the
 container to Docker Hub, run `./tool/push-container.sh`.
->>>>>>> f5bd7d67f2da7227aa999071073eff95adb0ab23
