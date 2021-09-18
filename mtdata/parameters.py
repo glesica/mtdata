@@ -18,7 +18,7 @@ def parse_parameters(args: List[str]) -> Parameters:
 
     parser = ArgumentParser(
         'mtdata',
-        description='A tool for curating public data of interest to Montanans',
+        description='A tool to help anyone build a mountain of public data',
     )
 
     parser.add_argument(
