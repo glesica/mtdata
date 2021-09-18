@@ -1,5 +1,3 @@
-"""
-mtdata
-"""
+from mtdata._version import VERSION
 
-__version__ = '1.0.0'
+__version__ = VERSION

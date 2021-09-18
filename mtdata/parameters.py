@@ -1,5 +1,7 @@
 from typing import NamedTuple, List, Tuple
 
+from mtdata._version import VERSION
+
 
 def comma_tuple(arg: str) -> Tuple[str]:
     return tuple((a.strip() for a in arg.split(',')))
@@ -23,7 +25,7 @@ def parse_parameters(args: List[str]) -> Parameters:
         '--datasets',
         '-d',
         type=comma_tuple,
-        help='datasets to fetch',
+        help='datasets to fetch, comma-delimited',
         default=(),
     )
     parser.add_argument(
@@ -37,8 +39,14 @@ def parse_parameters(args: List[str]) -> Parameters:
         '--stores',
         '-s',
         type=comma_tuple,
-        help='stores to use for fetched data',
+        help='stores to use for fetched data, comma-delimited',
         default=(),
+    )
+    parser.add_argument(
+        '--version',
+        '-v',
+        action='version',
+        version=f'mtdata {VERSION}',
     )
 
     parsed_args = parser.parse_args(args)

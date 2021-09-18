@@ -1,4 +1,4 @@
-from typing import NoReturn, Iterable
+from typing import Iterable
 
 from mtdata.manifest import ALL_DATASETS, ALL_STORES, get_store, get_dataset
 from mtdata.parameters import parse_parameters
