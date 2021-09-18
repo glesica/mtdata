@@ -52,6 +52,8 @@ class Dataset(ABC):
         way, we don't drop a new reading from a different location just
         because it occurred at the same time as a reading from a different
         location.
+
+        Uses the transformed version of the field names. 
         """
         pass
 
@@ -66,6 +68,8 @@ class Dataset(ABC):
         timestamped based on when the reading occurred, then that field
         will be listed here because two or more fetches might retrieve the
         same reading instance.
+
+        Uses the transformed version of the field names. 
         """
         pass
 
