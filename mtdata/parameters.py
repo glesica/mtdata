@@ -60,7 +60,7 @@ def parse_parameters(args: List[str]) -> Parameters:
         '--version',
         '-v',
         action='version',
-        version=f'mtdata {VERSION}',
+        version=f'{parser.prog} {VERSION}',
     )
 
     parsed_args = parser.parse_args(args)
