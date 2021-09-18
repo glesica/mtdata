@@ -9,6 +9,8 @@ def comma_tuple(arg: str) -> Tuple[str]:
 
 class Parameters(NamedTuple):
     datasets: Tuple[str]
+    list_datasets: bool
+    list_stores: bool
     namespace: str
     stores: Tuple[str]
 
@@ -29,6 +31,18 @@ def parse_parameters(args: List[str]) -> Parameters:
         default=(),
     )
     parser.add_argument(
+        '--list-datasets',
+        action='store_true',
+        help='list all available datasets',
+        default=False
+    )
+    parser.add_argument(
+        '--list-stores',
+        action='store_true',
+        help='list all available stores',
+        default=False
+    )
+    parser.add_argument(
         '--namespace',
         '-n',
         type=str,
@@ -39,7 +53,7 @@ def parse_parameters(args: List[str]) -> Parameters:
         '--stores',
         '-s',
         type=comma_tuple,
-        help='stores to use for fetched data, comma-delimited',
+        help='stores to use, comma-delimited',
         default=(),
     )
     parser.add_argument(
@@ -53,6 +67,8 @@ def parse_parameters(args: List[str]) -> Parameters:
 
     return Parameters(
         datasets=parsed_args.datasets,
+        list_datasets=parsed_args.list_datasets,
+        list_stores=parsed_args.list_stores,
         namespace=parsed_args.namespace,
         stores=parsed_args.stores,
     )
