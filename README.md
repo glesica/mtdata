@@ -18,9 +18,15 @@ Extracted from https://www.airnowapi.org.
 
 Extracted from https://apps.missoulacounty.us/dailypublicreport/.
 
+### Montana COVID-19 case counts
+
+Extracted from the Montana COVID-19 dashboard, https://www.arcgis.com/apps/MapSeries/index.html?appid=7c34f3412536439491adcc2103421d4b, starting Sept. 18, 2021
+
 ## Adding a Dataset
 
 A dataset is implemented as a sub-class of the `Dataset` abstract class in the
 `datasets` module. Once the dataset is implemented, add a factory function in
 `manifest.py`. Once this is done, the new dataset will run when the `mtdata`
 module is run.
+
+
