@@ -24,3 +24,13 @@ A dataset is implemented as a sub-class of the `Dataset` abstract class in the
 `datasets` module. Once the dataset is implemented, add a factory function in
 `manifest.py`. Once this is done, the new dataset will run when the `mtdata`
 module is run.
+
+## Development
+
+This project uses [Pipenv](https://pipenv.pypa.io/en/latest/). To install
+dependencies for development, use `pipenv sync --dev`.
+
+Once everything is installed, the easiest way to work with the repo is to
+use `pipenv shell` to drop into the virtual environment.
+
+To run the test suite, just run `python -m pytest`.
