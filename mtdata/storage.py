@@ -262,19 +262,22 @@ class CSVBasic(Storage):
         from itertools import islice
 
         cursor = []  # Placeholder for the dictionaries/documents
-        with open(self.name_to_path(name)) as csvFile:
-            first_row = csvFile.readlines(1)
-            if (len(first_row) == 0):
-                return []
+        try:
+            with open(self.name_to_path(name)) as csvFile:
+                first_row = csvFile.readlines(1)
+                if (len(first_row) == 0):
+                    return []
 
-            fieldnames = tuple(first_row[0].strip('\n').split(","))
+                fieldnames = tuple(first_row[0].strip('\n').split(","))
 
-            for row in islice(csvFile, 0, None):
-                values = list(row.strip('\n').split(","))
-                for i, value in enumerate(values):
-                    nValue = ast.literal_eval(value)
-                    values[i] = nValue
-                cursor.append(dict(zip(fieldnames, values)))
+                for row in islice(csvFile, 0, None):
+                    values = list(row.strip('\n').split(","))
+                    for i, value in enumerate(values):
+                        nValue = ast.literal_eval(value)
+                        values[i] = nValue
+                    cursor.append(dict(zip(fieldnames, values)))
+        except FileNotFoundError:
+            pass
         
         return cursor
 
