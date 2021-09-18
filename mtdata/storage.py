@@ -4,7 +4,6 @@ from typing import Iterable, List, Optional, NamedTuple
 from mtdata.backward import read_backward
 from mtdata.dataset import Row
 
-
 class StoreResult(NamedTuple):
     success: bool
     message: str
@@ -96,6 +95,53 @@ class Storage(ABC):
         from os import path
         return path.join(self.namespace, f'{name}.{extension}')
 
+    def dedup(self, existing_data: Iterable[Row], new_data: Iterable[Row], dedup_facets, dedup_fields) -> Iterable[Row]:
+        facets = set(dedup_facets)
+        fields = set(dedup_fields)
+
+        deduped_data: List[Row] = []
+
+        if facets:
+            for row in new_data:
+                matched_row: Optional[Row] = None
+                for existing_row in existing_data:
+                    matches = True
+                    for facet in facets:
+                        if row[facet] != existing_row[facet]:
+                            matches = False
+                            break
+
+                    if matches:
+                        matched_row = existing_row
+                        break
+
+                if matched_row:
+                    equal = True
+                    for field in fields:
+                        if row[field] != matched_row[field]:
+                            equal = False
+                            break
+                    if not equal:
+                        deduped_data.append(row)
+                else:
+                    deduped_data.append(row)
+        else:
+            if dedup_fields:
+                last_row = next(iter(existing_data))
+
+                for row in new_data:
+                    equal = True
+                    for field in fields:
+                        if row[field] != last_row[field]:
+                            equal = False
+
+                    if not equal:
+                        deduped_data.append(row)
+            else:
+                for row in new_data:
+                    deduped_data.append(row)
+
+        return deduped_data
 
 class JsonLines(Storage):
     """
@@ -118,10 +164,6 @@ class JsonLines(Storage):
                data: Iterable[Row],
                dedup_facets: Iterable[str],
                dedup_fields: Iterable[str]) -> StoreResult:
-        facets = set(dedup_facets)
-        fields = set(dedup_fields)
-
-        filtered_data: List[Row] = []
 
         for _ in self.load(name):
             break
@@ -130,49 +172,12 @@ class JsonLines(Storage):
             # append all rows in data and return
             return self.replace(name, data)
 
-        if facets:
-            for row in data:
-                matched_row: Optional[Row] = None
-                for existing_row in self.load_backward(name):
-                    matches = True
-                    for facet in facets:
-                        if row[facet] != existing_row[facet]:
-                            matches = False
-                            break
-
-                    if matches:
-                        matched_row = existing_row
-                        break
-
-                if matched_row:
-                    equal = True
-                    for field in fields:
-                        if row[field] != matched_row[field]:
-                            equal = False
-                            break
-                    if not equal:
-                        filtered_data.append(row)
-                else:
-                    filtered_data.append(row)
-        else:
-            if dedup_fields:
-                last_row = next(iter(self.load_backward(name)))
-
-                for row in data:
-                    equal = True
-                    for field in fields:
-                        if row[field] != last_row[field]:
-                            equal = False
-
-                    if not equal:
-                        filtered_data.append(row)
-            else:
-                for row in data:
-                    filtered_data.append(row)
+        existing_data = self.load_backward(name)
+        deduped_data = self.dedup(existing_data, data, dedup_facets, dedup_fields)
 
         with open(self.name_to_path(name), 'a') as file:
             import json
-            for row in filtered_data:
+            for row in deduped_data:
                 json.dump(row, file, sort_keys=True)
                 file.write('\n')
 
@@ -214,20 +219,79 @@ class JsonLines(Storage):
             message='',
         )
 
-
 class CSVBasic(Storage):
     """
     A minimal CSV implementation that uses a `DictWriter` to write rows
     to the indicated file.
     """
+
+    @staticmethod
+    def name() -> str:
+        return 'csv'
+
     def append(self, name: str,
                data: Iterable[Row],
                dedup_facets: Iterable[str],
-               dedup_fields: Iterable[str]) -> None:
-        pass
+               dedup_fields: Iterable[str]) -> StoreResult:
+
+        existing_data = self.load(name)
+        if (existing_data == []):
+            return self.replace(name, data)
+        
+        deduped_data = self.dedup(existing_data, data, dedup_facets, dedup_fields)
+
+        with open(self.name_to_path(name), 'a') as file:
+            import csv
+            writer = None
+            for row in deduped_data:
+                if writer is None:
+                    writer = csv.DictWriter(file, fieldnames=list(row.keys()))
+                writer.writerow(row)
+
+        return StoreResult(
+            success=True,
+            message=''
+        )
 
     def load(self, name: str) -> Iterable[Row]:
-        pass
+        """
+        Convert csv rows into an array of dictionaries
+        All data types are automatically checked and converted
+        """
+        import ast
+        from itertools import islice
 
-    def replace(self, name: str, data: Iterable[Row]) -> None:
-        pass
+        cursor = []  # Placeholder for the dictionaries/documents
+        with open(self.name_to_path(name)) as csvFile:
+            first_row = csvFile.readlines(1)
+            if (len(first_row) == 0):
+                return []
+
+            fieldnames = tuple(first_row[0].strip('\n').split(","))
+
+            for row in islice(csvFile, 0, None):
+                values = list(row.strip('\n').split(","))
+                for i, value in enumerate(values):
+                    nValue = ast.literal_eval(value)
+                    values[i] = nValue
+                cursor.append(dict(zip(fieldnames, values)))
+        
+        return cursor
+
+    def replace(self, name: str, data: Iterable[Row]) -> StoreResult:
+        with open(self.name_to_path(name), 'w') as file:
+            import csv
+            writer = None
+            for row in data:
+                if writer is None:
+                    writer = csv.DictWriter(file, fieldnames=list(row.keys()))
+                    writer.writeheader()
+                writer.writerow(row)
+                
+        return StoreResult(
+            success=True,
+            message='',
+        )
+    
+    def name_to_path(self, name: str) -> str:
+        return self.get_path(name, 'csv')
