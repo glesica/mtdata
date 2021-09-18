@@ -1,6 +1,6 @@
-# MT Data
+# Mt. Data
 
-Montana public data repository.
+A tool to help anyone build a mountain of public data.
 
 Includes a simple Python script that can be configured to extract data from
 various sources. This is run periodically through GitHub actions and the updated
