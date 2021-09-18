@@ -3,6 +3,7 @@ from typing import Iterable, Type, Optional
 from mtdata.dataset import Dataset
 from mtdata.datasets.air_quality import AirQuality
 from mtdata.datasets.missoula_911 import Missoula911
+from mtdata.datasets.mt_covid_counts import CovidCounts
 from mtdata.storage import Storage, JsonLines
 
 # +----------------------------------------------------+
@@ -13,6 +14,7 @@ from mtdata.storage import Storage, JsonLines
 ALL_DATASETS: Iterable[Type[Dataset]] = (
     AirQuality,
     Missoula911,
+    CovidCounts,
 )
 
 # +----------------------------------------------------+

@@ -2,4 +2,9 @@
 
 set -e
 
-docker build -t glesica/mtdata:latest .
+pkg_version=$(python mtdata/_version.py)
+
+docker build \
+  -t glesica/mtdata:${pkg_version} \
+  -t glesica/mtdata:latest \
+  .
