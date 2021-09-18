@@ -1,6 +1,7 @@
-from typing import Optional, List
+from typing import Optional, List, Iterable
 
-from mtdata.dataset import Dataset, FetchStatus, Row
+from mtdata.dataset import Dataset, FetchResult, Row
+from mtdata.transformer import Transformer
 
 _URL = 'https://www.airnowapi.org/aq/data/'
 
@@ -17,46 +18,38 @@ _PARAMS = {
 
 
 class AirQuality(Dataset):
-    @property
-    def name(self) -> str:
+    @staticmethod
+    def name() -> str:
         return 'air_quality'
 
-    def fetch(self, out_path: str) -> Optional[FetchStatus]:
-        import json
+    @property
+    def dedup_facets(self) -> Iterable[str]:
+        return ['site_name']
+
+    @property
+    def dedup_fields(self) -> Iterable[str]:
+        return ['utc_timestamp']
+
+    @property
+    def transformer(self) -> Transformer:
+        return Transformer([
+            ('aqi', 'AQI'),
+            ('agency_name', 'AgencyName'),
+            ('category', 'Category'),
+            ('full_aqs_code', 'FullAQSCode'),
+            ('intl_aqs_code', 'IntlAQSCode'),
+            ('latitude', 'Latitude'),
+            ('longitude', 'Longitude'),
+            ('parameter', 'Parameter'),
+            ('site_name', 'SiteName'),
+            ('utc_timestamp', 'UTC'),
+            ('unit', 'Unit'),
+        ])
+
+    def fetch(self) -> FetchResult:
         import requests
-        from os import path
-
-        output_path = path.join(out_path, f'{self.name}.json')
-
-        try:
-            with open(output_path, 'r') as data_file:
-                old_data: List[Row] = json.load(data_file)
-        except FileNotFoundError:
-            old_data: List[Row] = []
 
         resp = requests.get(_URL, _PARAMS)
         data: List[Row] = resp.json()
 
-        filtered_data: List[Row] = []
-        if len(old_data) == 0:
-            new_data = data
-        else:
-            for row in data:
-                # Find the last reading from this site and compare its
-                # timestamp to the current one to avoid duplicates.
-                should_include = True
-                for old_row in reversed(old_data):
-                    if row['SiteName'] == old_row['SiteName']:
-                        if row['UTC'] == old_row['UTC']:
-                            should_include = False
-                        break
-
-                if should_include:
-                    filtered_data.append(row)
-
-            new_data = old_data + filtered_data
-
-        with open(output_path, 'w') as data_file:
-            json.dump(new_data, data_file, indent=2, sort_keys=True)
-
-        return FetchStatus(resp.status_code == 200, resp.text)
+        return FetchResult(resp.status_code == 200, resp.text, data)
