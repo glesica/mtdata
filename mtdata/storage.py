@@ -156,6 +156,11 @@ class JsonLines(Storage):
                     filtered_data.append(row)
         else:
             if dedup_fields:
+                # This is complicated-ish. We assume that `data` are in
+                # chronological order, and therefore if some element, `i`,
+                # in `data` matches the last row we've got stored, then
+                # every element in the range `[0, i]` is already stored,
+                # and every element in the range `(i, N)` is "new".
                 last_row = next(iter(self.load_backward(name)))
 
                 for row in data:
@@ -163,8 +168,9 @@ class JsonLines(Storage):
                     for field in fields:
                         if row[field] != last_row[field]:
                             equal = False
-
-                    if not equal:
+                    if equal:
+                        filtered_data.clear()
+                    else:
                         filtered_data.append(row)
             else:
                 for row in data:
