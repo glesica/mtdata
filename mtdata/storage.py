@@ -229,11 +229,11 @@ class CSVBasic(Storage):
     def append(self, name: str,
                data: Iterable[Row],
                dedup_facets: Iterable[str],
-               dedup_fields: Iterable[str]) -> None:
+               dedup_fields: Iterable[str]) -> StoreResult:
         pass
 
     def load(self, name: str) -> Iterable[Row]:
         pass
 
-    def replace(self, name: str, data: Iterable[Row]) -> None:
+    def replace(self, name: str, data: Iterable[Row]) -> StoreResult:
         pass

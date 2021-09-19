@@ -3,7 +3,7 @@ from typing import NamedTuple, List, Tuple
 from mtdata._version import VERSION
 
 
-def comma_tuple(arg: str) -> Tuple[str]:
+def comma_tuple(arg: str) -> Tuple[str, ...]:
     return tuple((a.strip() for a in arg.split(',')))
 
 
