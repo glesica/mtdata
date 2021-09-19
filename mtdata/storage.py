@@ -87,16 +87,44 @@ class Storage(ABC):
         """
         pass
 
-    def get_path(self, name: str, extension: str) -> str:
+    @staticmethod
+    def dedup(existing_data: Iterable[Row],
+              new_data: Iterable[Row],
+              dedup_facets: Iterable[str] = (),
+              dedup_fields: Iterable[str] = ()) -> Iterable[Row]:
         """
-        A helper for implementations that use the filesystem. Returns a path
-        to a file with the given name and extension, located in a directory
-        determined by the ``namespace`` property.
-        """
-        from os import path
-        return path.join(self.namespace, f'{name}.{extension}')
+        A helper function to de-duplicate data based on the given facets
+        and fields. This algorithm won't work for every possible case,
+        but it ought to cover the most common situations nicely.
 
-    def dedup(self, existing_data: Iterable[Row], new_data: Iterable[Row], dedup_facets, dedup_fields) -> Iterable[Row]:
+        Important: the ``existing_data`` iterable MUST be in reverse-
+        chronological order. In other words, the first element of this
+        iterable must be the most recent row added to the store.
+
+        If ``dedup_facets`` are provided, then for each new row, search
+        backward through the existing data to find the most recent row
+        that matches on those facets, then compare based on the
+        ``dedup_fields``. If they match, then the row will not be included
+        in the returned iterable.
+
+        If there are no ``dedup_facets``, but there are ``dedup_fields``,
+        then grab the most recent row from the stored data and compare it
+        against each row of new data. If any of the new rows match, then
+        drop that row and all rows that occurred before it, and add the
+        remaining rows to the returned iterable.
+
+        If both dedup parameters are empty, then the new data are passed
+        through unfiltered.
+
+        >>> list(Storage.dedup(
+        ...   reversed([{'a': 1}, {'a': 2}]),
+        ...   [{'a': 3}], [], ['a']))
+        [{'a': 3}]
+        >>> list(Storage.dedup(
+        ...   reversed([{'a': 1}, {'a': 2}]),
+        ...   [{'a': 2}, {'a': 3}], [], ['a']))
+        [{'a': 3}]
+        """
         facets = set(dedup_facets)
         fields = set(dedup_fields)
 
@@ -149,6 +177,15 @@ class Storage(ABC):
                     deduped_data.append(row)
 
         return deduped_data
+
+    def get_path(self, name: str, extension: str) -> str:
+        """
+        A helper for implementations that use the filesystem. Returns a path
+        to a file with the given name and extension, located in a directory
+        determined by the ``namespace`` property.
+        """
+        from os import path
+        return path.join(self.namespace, f'{name}.{extension}')
 
 
 class JsonLines(Storage):
