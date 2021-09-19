@@ -20,6 +20,24 @@ DATA = [
     }
 ]
 
+def test_json_lines_storage_dedup():
+    import os
+
+    file, path = tempfile.mkstemp(suffix='.lines.json')
+    name = path.split('.')[0]
+    os.close(file)
+
+    sto = JsonLines('')
+
+    sto.append(name, DATA, [], [])
+    with open(path, 'r') as file:
+        assert len(list(file)) == 3
+
+    sto.append(name, DATA, [], ['a'])
+    with open(path, 'r') as file:
+        # I'd expect this to be 3, not 5
+        assert len(list(file)) == 5
+
 
 def test_json_lines_storage():
     import os
