@@ -12,7 +12,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Run tool
-        run: python -m mtdata --out $GITHUB_WORKSPACE/data
+        run: mtdata --out $GITHUB_WORKSPACE/data
       - name: Commit and push
         uses: EndBug/add-and-commit@v7
         with:
