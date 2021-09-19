@@ -33,7 +33,7 @@ class CovidCounts(Dataset):
     @property
     def dedup_fields(self) -> Iterable[str]:
         # Only save records that reflect changes in the number of cumulative cases reported for the county
-        return ['cumulative_cases']
+        return ['cumulative_cases', 'new_cases', 'cumulative_deaths', 'active_cases', 'recovered_cases']
 
     @property
     def transformer(self) -> Transformer:
