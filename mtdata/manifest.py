@@ -22,9 +22,7 @@ ALL_DATASETS: Iterable[Type[Dataset]] = (
 # | when the software is run.                          |
 # +----------------------------------------------------+
 
-ALL_STORES: Iterable[Type[Storage]] = (
-    JsonLines,
-)
+ALL_STORES: Iterable[Type[Storage]] = (JsonLines,)
 
 # +-------------------------------------+
 # | Helpers for accessing the manifests |

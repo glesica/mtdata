@@ -15,6 +15,7 @@ class Storage(ABC):
     A generic storage manager that can handle writing data to a file
     or other persistence mechanism.
     """
+
     _namespace: str
 
     def __init__(self, namespace: str):
@@ -42,11 +43,13 @@ class Storage(ABC):
         return self._namespace
 
     @abstractmethod
-    def append(self,
-               name: str,
-               data: Iterable[Row],
-               dedup_facets: Iterable[str],
-               dedup_fields: Iterable[str]) -> StoreResult:
+    def append(
+        self,
+        name: str,
+        data: Iterable[Row],
+        dedup_facets: Iterable[str],
+        dedup_fields: Iterable[str],
+    ) -> StoreResult:
         """
         Append some number of rows to the data currently stored. The
         existing data should remain untouched and the new data should,
@@ -94,7 +97,8 @@ class Storage(ABC):
         determined by the ``namespace`` property.
         """
         from os import path
-        return path.join(self.namespace, f'{name}.{extension}')
+
+        return path.join(self.namespace, f"{name}.{extension}")
 
 
 class JsonLines(Storage):
@@ -111,13 +115,15 @@ class JsonLines(Storage):
 
     @staticmethod
     def name() -> str:
-        return 'json-lines'
+        return "json-lines"
 
-    def append(self,
-               name: str,
-               data: Iterable[Row],
-               dedup_facets: Iterable[str],
-               dedup_fields: Iterable[str]) -> StoreResult:
+    def append(
+        self,
+        name: str,
+        data: Iterable[Row],
+        dedup_facets: Iterable[str],
+        dedup_fields: Iterable[str],
+    ) -> StoreResult:
         facets = set(dedup_facets)
         fields = set(dedup_fields)
 
@@ -176,21 +182,23 @@ class JsonLines(Storage):
                 for row in data:
                     filtered_data.append(row)
 
-        with open(self.name_to_path(name), 'a') as file:
+        with open(self.name_to_path(name), "a") as file:
             import json
+
             for row in filtered_data:
                 json.dump(row, file, sort_keys=True)
-                file.write('\n')
+                file.write("\n")
 
         return StoreResult(
             success=True,
-            message='',
+            message="",
         )
 
     def load(self, name: str) -> Iterable[Row]:
         try:
-            with open(self.name_to_path(name), 'r') as file:
+            with open(self.name_to_path(name), "r") as file:
                 import json
+
                 for line in file:
                     yield json.loads(line)
         except FileNotFoundError:
@@ -198,26 +206,28 @@ class JsonLines(Storage):
 
     def load_backward(self, name: str) -> Iterable[Row]:
         try:
-            with open(self.name_to_path(name), 'rb') as file:
+            with open(self.name_to_path(name), "rb") as file:
                 import json
+
                 for line in read_backward(file):
                     yield json.loads(line)
         except FileNotFoundError:
             pass
 
     def name_to_path(self, name: str) -> str:
-        return self.get_path(name, 'lines.json')
+        return self.get_path(name, "lines.json")
 
     def replace(self, name: str, data: Iterable[Row]) -> StoreResult:
-        with open(self.name_to_path(name), 'w') as file:
+        with open(self.name_to_path(name), "w") as file:
             import json
+
             for row in data:
                 json.dump(row, file, sort_keys=True)
-                file.write('\n')
+                file.write("\n")
 
         return StoreResult(
             success=True,
-            message='',
+            message="",
         )
 
 
@@ -226,10 +236,14 @@ class CSVBasic(Storage):
     A minimal CSV implementation that uses a `DictWriter` to write rows
     to the indicated file.
     """
-    def append(self, name: str,
-               data: Iterable[Row],
-               dedup_facets: Iterable[str],
-               dedup_fields: Iterable[str]) -> StoreResult:
+
+    def append(
+        self,
+        name: str,
+        data: Iterable[Row],
+        dedup_facets: Iterable[str],
+        dedup_fields: Iterable[str],
+    ) -> StoreResult:
         pass
 
     def load(self, name: str) -> Iterable[Row]:

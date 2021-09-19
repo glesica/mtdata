@@ -11,15 +11,16 @@ def _choices_warning(kind: str, value: str, choices: Iterable[str]) -> None:
 
 def main() -> None:
     from sys import argv
+
     params = parse_parameters(argv[1:])
 
     if params.list_datasets:
-        print('DATASETS')
+        print("DATASETS")
         for dataset in ALL_DATASETS:
             print(dataset.name())
 
     if params.list_stores:
-        print('STORES')
+        print("STORES")
         for store in ALL_STORES:
             print(store.name())
 
@@ -31,10 +32,7 @@ def main() -> None:
         for store_name in params.stores:
             next_store = get_store(store_name)
             if next_store is None:
-                _choices_warning(
-                    'store',
-                    store_name,
-                    [s.name() for s in ALL_STORES])
+                _choices_warning("store", store_name, [s.name() for s in ALL_STORES])
             else:
                 stores.append(next_store)
     else:
@@ -46,9 +44,8 @@ def main() -> None:
             next_dataset = get_dataset(dataset_name)
             if next_dataset is None:
                 _choices_warning(
-                    'dataset',
-                    dataset_name,
-                    [d.name() for d in ALL_DATASETS])
+                    "dataset", dataset_name, [d.name() for d in ALL_DATASETS]
+                )
             else:
                 configs.append((next_dataset, stores))
     else:
@@ -59,9 +56,9 @@ def main() -> None:
     results = registry.update(params.namespace)
 
     for update_result in results:
-        status = 'ok' if update_result.success else 'fail'
-        print(f'{update_result.name} - {status}')
+        status = "ok" if update_result.success else "fail"
+        print(f"{update_result.name} - {status}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

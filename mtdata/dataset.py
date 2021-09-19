@@ -21,6 +21,7 @@ class FetchResult(NamedTuple):
     were no rows available (this will depend on the source). It should
     also be empty on failure.
     """
+
     success: bool
     message: str
     data: Iterable[Row]
@@ -53,7 +54,7 @@ class Dataset(ABC):
         because it occurred at the same time as a reading from a different
         location.
 
-        Uses the transformed version of the field names. 
+        Uses the transformed version of the field names.
         """
         pass
 
@@ -69,7 +70,7 @@ class Dataset(ABC):
         will be listed here because two or more fetches might retrieve the
         same reading instance.
 
-        Uses the transformed version of the field names. 
+        Uses the transformed version of the field names.
         """
         pass
 

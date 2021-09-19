@@ -27,7 +27,7 @@ def read_backward(file: BinaryIO) -> Iterable[str]:
     for offset in range(length - 1, -1, -1):
         file.seek(offset)
 
-        if file.read(1) == b'\n':
+        if file.read(1) == b"\n":
             line = file.readline().decode()
             if line:
                 yield line

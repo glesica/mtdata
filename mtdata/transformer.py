@@ -28,6 +28,7 @@ class Transformer:
     >>> t({'A': 'XYZ', 'B': 'XYZ'})
     {'a': 'XYZ', 'b': 'xyz'}
     """
+
     _name_mapping: Dict[str, str]
     _update_functions: Dict[str, Callable[[Any], Any]]
 
@@ -75,10 +76,12 @@ class Transformer:
 
         return row
 
-    def add_field(self,
-                  name: str,
-                  old_name: Optional[str] = None,
-                  updater: UpdaterFunction = lambda a: a) -> None:
+    def add_field(
+        self,
+        name: str,
+        old_name: Optional[str] = None,
+        updater: UpdaterFunction = lambda a: a,
+    ) -> None:
         """
         Add a field to the transformation.
 
