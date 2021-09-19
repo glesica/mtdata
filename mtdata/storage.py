@@ -4,6 +4,7 @@ from typing import Iterable, List, Optional, NamedTuple
 from mtdata.backward import read_backward
 from mtdata.dataset import Row
 
+
 class StoreResult(NamedTuple):
     success: bool
     message: str
@@ -127,6 +128,11 @@ class Storage(ABC):
                     deduped_data.append(row)
         else:
             if dedup_fields:
+                # This is complicated-ish. We assume that `data` are in
+                # chronological order, and therefore if some element, `i`,
+                # in `data` matches the last row we've got stored, then
+                # every element in the range `[0, i]` is already stored,
+                # and every element in the range `(i, N)` is "new".
                 last_row = next(iter(existing_data))
 
                 for row in new_data:
@@ -134,14 +140,16 @@ class Storage(ABC):
                     for field in fields:
                         if row[field] != last_row[field]:
                             equal = False
-
-                    if not equal:
+                    if equal:
+                        deduped_data.clear()
+                    else:
                         deduped_data.append(row)
             else:
                 for row in new_data:
                     deduped_data.append(row)
 
         return deduped_data
+
 
 class JsonLines(Storage):
     """
@@ -173,7 +181,12 @@ class JsonLines(Storage):
             return self.replace(name, data)
 
         existing_data = self.load_backward(name)
-        deduped_data = self.dedup(existing_data, data, dedup_facets, dedup_fields)
+        deduped_data = self.dedup(
+            existing_data,
+            data,
+            dedup_facets,
+            dedup_fields,
+        )
 
         with open(self.name_to_path(name), 'a') as file:
             import json
@@ -219,6 +232,7 @@ class JsonLines(Storage):
             message='',
         )
 
+
 class CSVBasic(Storage):
     """
     A minimal CSV implementation that uses a `DictWriter` to write rows
@@ -238,7 +252,12 @@ class CSVBasic(Storage):
         if (existing_data == []):
             return self.replace(name, data)
         
-        deduped_data = self.dedup(existing_data, data, dedup_facets, dedup_fields)
+        deduped_data = self.dedup(
+            existing_data,
+            data,
+            dedup_facets,
+            dedup_fields,
+        )
 
         with open(self.name_to_path(name), 'a') as file:
             import csv

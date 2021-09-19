@@ -58,6 +58,19 @@ def test_json_lines_storage():
     data = list(sto.load(name))
     assert len(data) == 3
 
+    # Only DATA[1] should be added now because of de-duplication.
+    sto.append(name, [DATA[0], DATA[2], DATA[1]], [], ['c'])
+    with open(path, 'r') as file:
+        assert len(list(file)) == 4
+
+    data = list(sto.load(name))
+    assert len(data) == 4
+    assert data[0]['c'] == 3
+    assert data[1]['c'] == 30
+    assert data[2]['c'] == 300
+    assert data[3]['c'] == 30
+
+
 def test_csv_storage():
     import os
 
