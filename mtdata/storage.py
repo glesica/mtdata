@@ -301,11 +301,15 @@ class CSVBasic(Storage):
         )
 
         with open(self.name_to_path(name), 'a') as file:
-            from csv import DictWriter
+            from csv import DictWriter, QUOTE_NONNUMERIC
             writer = None
             for row in deduped_data:
                 if writer is None:
-                    writer = DictWriter(file, fieldnames=list(row.keys()))
+                    writer = DictWriter(
+                        file,
+                        fieldnames=list(row.keys()),
+                        quoting=QUOTE_NONNUMERIC,
+                    )
                 writer.writerow(row)
 
         return StoreResult(
@@ -314,17 +318,17 @@ class CSVBasic(Storage):
         )
 
     def load(self, name: str) -> Iterable[Row]:
-        from csv import DictReader
+        from csv import DictReader, QUOTE_NONNUMERIC
         try:
             with open(self.name_to_path(name), 'r') as file:
-                reader = DictReader(file)
+                reader = DictReader(file, quoting=QUOTE_NONNUMERIC)
                 for row in reader:
                     yield row
         except FileNotFoundError:
             pass
 
     def load_backward(self, name: str) -> Iterable[Row]:
-        from csv import DictReader
+        from csv import DictReader, QUOTE_NONNUMERIC
         from itertools import chain
 
         # We have to kind of hack this because the reader doesn't have
@@ -338,7 +342,10 @@ class CSVBasic(Storage):
         # the header line at the beginning of the iterator. Skip the
         # last line of the iterator since that's the header row again.
         with open(self.name_to_path(name), 'rb') as file:
-            reader = DictReader(chain([header_line], read_backward(file)))
+            reader = DictReader(
+                chain([header_line], read_backward(file)),
+                quoting=QUOTE_NONNUMERIC,
+            )
 
             curr = next(reader, None)
             if curr is None:
@@ -355,11 +362,15 @@ class CSVBasic(Storage):
 
     def replace(self, name: str, data: Iterable[Row]) -> StoreResult:
         with open(self.name_to_path(name), 'w') as file:
-            import csv
+            from csv import DictWriter, QUOTE_NONNUMERIC
             writer = None
             for row in data:
                 if writer is None:
-                    writer = csv.DictWriter(file, fieldnames=list(row.keys()))
+                    writer = DictWriter(
+                        file,
+                        fieldnames=list(row.keys()),
+                        quoting=QUOTE_NONNUMERIC,
+                    )
                     writer.writeheader()
                 writer.writerow(row)
                 

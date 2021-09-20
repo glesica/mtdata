@@ -88,7 +88,7 @@ def test_csv_storage():
     with open(path, 'r') as file:
         lines = list(file)
         assert len(lines) == 4
-        assert lines[0] == 'c,a,b\n'
+        assert lines[0] == '"c","a","b"\n'
         assert lines[1] == '3,1,2\n'
         assert lines[2] == '30,10,20\n'
         assert lines[3] == '300,100,200\n'
@@ -97,7 +97,7 @@ def test_csv_storage():
     with open(path, 'r') as file:
         lines = list(file)
         assert len(lines) == 7
-        assert lines[0] == 'c,a,b\n'
+        assert lines[0] == '"c","a","b"\n'
         assert lines[1] == '3,1,2\n'
         assert lines[2] == '30,10,20\n'
         assert lines[3] == '300,100,200\n'
