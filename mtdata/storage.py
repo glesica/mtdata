@@ -92,6 +92,99 @@ class Storage(ABC):
         required by the storage implementation.
         """
 
+    @staticmethod
+    def dedup(
+        existing_data: Iterable[Row],
+        new_data: Iterable[Row],
+        dedup_facets: Iterable[str] = (),
+        dedup_fields: Iterable[str] = (),
+    ) -> Iterable[Row]:
+        """
+        A helper function to de-duplicate data based on the given facets
+        and fields. This algorithm won't work for every possible case,
+        but it ought to cover the most common situations nicely.
+
+        Important: the ``existing_data`` iterable MUST be in reverse-
+        chronological order. In other words, the first element of this
+        iterable must be the most recent row added to the store.
+
+        If ``dedup_facets`` are provided, then for each new row, search
+        backward through the existing data to find the most recent row
+        that matches on those facets, then compare based on the
+        ``dedup_fields``. If they match, then the row will not be included
+        in the returned iterable.
+
+        If there are no ``dedup_facets``, but there are ``dedup_fields``,
+        then grab the most recent row from the stored data and compare it
+        against each row of new data. If any of the new rows match, then
+        drop that row and all rows that occurred before it, and add the
+        remaining rows to the returned iterable.
+
+        If both dedup parameters are empty, then the new data are passed
+        through unfiltered.
+
+        >>> list(Storage.dedup(
+        ...   reversed([{'a': 1}, {'a': 2}]),
+        ...   [{'a': 3}], [], ['a']))
+        [{'a': 3}]
+        >>> list(Storage.dedup(
+        ...   reversed([{'a': 1}, {'a': 2}]),
+        ...   [{'a': 2}, {'a': 3}], [], ['a']))
+        [{'a': 3}]
+        """
+        facets = set(dedup_facets)
+        fields = set(dedup_fields)
+
+        deduped_data: List[Row] = []
+
+        if facets:
+            for row in new_data:
+                matched_row: Optional[Row] = None
+                for existing_row in existing_data:
+                    matches = True
+                    for facet in facets:
+                        if row[facet] != existing_row[facet]:
+                            matches = False
+                            break
+
+                    if matches:
+                        matched_row = existing_row
+                        break
+
+                if matched_row:
+                    equal = True
+                    for field in fields:
+                        if row[field] != matched_row[field]:
+                            equal = False
+                            break
+                    if not equal:
+                        deduped_data.append(row)
+                else:
+                    deduped_data.append(row)
+        else:
+            if dedup_fields:
+                # This is complicated-ish. We assume that `data` are in
+                # chronological order, and therefore if some element, `i`,
+                # in `data` matches the last row we've got stored, then
+                # every element in the range `[0, i]` is already stored,
+                # and every element in the range `(i, N)` is "new".
+                last_row = next(iter(existing_data))
+
+                for row in new_data:
+                    equal = True
+                    for field in fields:
+                        if row[field] != last_row[field]:
+                            equal = False
+                    if equal:
+                        deduped_data.clear()
+                    else:
+                        deduped_data.append(row)
+            else:
+                for row in new_data:
+                    deduped_data.append(row)
+
+        return deduped_data
+
     def get_path(self, name: str, extension: str) -> str:
         """
         A helper for implementations that use the filesystem. Returns a path
@@ -126,10 +219,6 @@ class JsonLines(Storage):
         dedup_facets: Iterable[str],
         dedup_fields: Iterable[str],
     ) -> StoreResult:
-        facets = set(dedup_facets)
-        fields = set(dedup_fields)
-
-        filtered_data: List[Row] = []
 
         for _ in self.load(name):
             break
@@ -138,56 +227,18 @@ class JsonLines(Storage):
             # append all rows in data and return
             return self.replace(name, data)
 
-        if facets:
-            for row in data:
-                matched_row: Optional[Row] = None
-                for existing_row in self.load_backward(name):
-                    matches = True
-                    for facet in facets:
-                        if row[facet] != existing_row[facet]:
-                            matches = False
-                            break
-
-                    if matches:
-                        matched_row = existing_row
-                        break
-
-                if matched_row:
-                    equal = True
-                    for field in fields:
-                        if row[field] != matched_row[field]:
-                            equal = False
-                            break
-                    if not equal:
-                        filtered_data.append(row)
-                else:
-                    filtered_data.append(row)
-        else:
-            if dedup_fields:
-                # This is complicated-ish. We assume that `data` are in
-                # chronological order, and therefore if some element, `i`,
-                # in `data` matches the last row we've got stored, then
-                # every element in the range `[0, i]` is already stored,
-                # and every element in the range `(i, N)` is "new".
-                last_row = next(iter(self.load_backward(name)))
-
-                for row in data:
-                    equal = True
-                    for field in fields:
-                        if row[field] != last_row[field]:
-                            equal = False
-                    if equal:
-                        filtered_data.clear()
-                    else:
-                        filtered_data.append(row)
-            else:
-                for row in data:
-                    filtered_data.append(row)
+        existing_data = self.load_backward(name)
+        deduped_data = self.dedup(
+            existing_data,
+            data,
+            dedup_facets,
+            dedup_fields,
+        )
 
         with open(self.name_to_path(name), "a") as file:
             import json
 
-            for row in filtered_data:
+            for row in deduped_data:
                 json.dump(row, file, sort_keys=True)
                 file.write("\n")
 
@@ -251,6 +302,10 @@ class CSVBasic(Storage):
     to the indicated file.
     """
 
+    @staticmethod
+    def name() -> str:
+        return "csv"
+
     def append(
         self,
         name: str,
@@ -258,10 +313,100 @@ class CSVBasic(Storage):
         dedup_facets: Iterable[str],
         dedup_fields: Iterable[str],
     ) -> StoreResult:
-        pass
+
+        for _ in self.load(name):
+            break
+        else:
+            # There are no data (yet) so we can just
+            # append all rows in data and return
+            return self.replace(name, data)
+
+        existing_data = self.load_backward(name)
+        deduped_data = self.dedup(
+            existing_data,
+            data,
+            dedup_facets,
+            dedup_fields,
+        )
+
+        with open(self.name_to_path(name), "a") as file:
+            from csv import DictWriter, QUOTE_NONNUMERIC
+
+            writer = None
+            for row in deduped_data:
+                if writer is None:
+                    writer = DictWriter(
+                        file,
+                        fieldnames=list(row.keys()),
+                        quoting=QUOTE_NONNUMERIC,
+                    )
+                writer.writerow(row)
+
+        return StoreResult(success=True, message="")
 
     def load(self, name: str) -> Iterable[Row]:
-        pass
+        from csv import DictReader, QUOTE_NONNUMERIC
+
+        try:
+            with open(self.name_to_path(name), "r") as file:
+                reader = DictReader(file, quoting=QUOTE_NONNUMERIC)
+                for row in reader:
+                    yield row
+        except FileNotFoundError:
+            pass
+
+    def load_backward(self, name: str) -> Iterable[Row]:
+        from csv import DictReader, QUOTE_NONNUMERIC
+        from itertools import chain
+
+        # We have to kind of hack this because the reader doesn't have
+        # support for loading a CSV backward.
+
+        # First grab the header line
+        with open(self.name_to_path(name), "r") as header_file:
+            header_line = header_file.readline()
+
+        # Then read the file backward and parse each line, but adding
+        # the header line at the beginning of the iterator. Skip the
+        # last line of the iterator since that's the header row again.
+        with open(self.name_to_path(name), "rb") as data_file:
+            reader = DictReader(
+                chain([header_line], read_backward(data_file)),
+                quoting=QUOTE_NONNUMERIC,
+            )
+
+            curr = next(reader, None)
+            if curr is None:
+                return
+
+            while True:
+                prev = curr
+                curr = next(reader, None)
+                if prev is not None:
+                    if curr is None:
+                        break
+                    else:
+                        yield prev
 
     def replace(self, name: str, data: Iterable[Row]) -> StoreResult:
-        pass
+        with open(self.name_to_path(name), "w") as file:
+            from csv import DictWriter, QUOTE_NONNUMERIC
+
+            writer = None
+            for row in data:
+                if writer is None:
+                    writer = DictWriter(
+                        file,
+                        fieldnames=list(row.keys()),
+                        quoting=QUOTE_NONNUMERIC,
+                    )
+                    writer.writeheader()
+                writer.writerow(row)
+
+        return StoreResult(
+            success=True,
+            message="",
+        )
+
+    def name_to_path(self, name: str) -> str:
+        return self.get_path(name, "csv")

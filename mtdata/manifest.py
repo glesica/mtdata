@@ -4,7 +4,7 @@ from mtdata.dataset import Dataset
 from mtdata.datasets.air_quality import AirQuality
 from mtdata.datasets.missoula_911 import Missoula911
 from mtdata.datasets.mt_covid_counts import CovidCounts
-from mtdata.storage import Storage, JsonLines
+from mtdata.storage import CSVBasic, Storage, JsonLines
 
 # +----------------------------------------------------+
 # | Add new datasets below to have them made available |
@@ -22,7 +22,10 @@ ALL_DATASETS: Iterable[Type[Dataset]] = (
 # | when the software is run.                          |
 # +----------------------------------------------------+
 
-ALL_STORES: Iterable[Type[Storage]] = (JsonLines,)
+ALL_STORES: Iterable[Type[Storage]] = (
+    JsonLines,
+    CSVBasic,
+)
 
 # +-------------------------------------+
 # | Helpers for accessing the manifests |
