@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
+      - name: Update dependencies
+        run: pipenv sync --pre
       - name: Type check
         run: ./tool/check-types.sh
       - name: Unit tests
