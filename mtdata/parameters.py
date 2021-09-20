@@ -1,4 +1,5 @@
-from typing import NamedTuple, List, Tuple
+from argparse import Namespace
+from typing import NamedTuple, List, Tuple, Dict, Any
 
 from mtdata._version import VERSION
 
@@ -13,6 +14,27 @@ class Parameters(NamedTuple):
     list_stores: bool
     namespace: str
     stores: Tuple[str]
+
+
+def args_parameters(args: Namespace) -> Parameters:
+    pass
+
+
+def dict_parameters(config: Dict[str, Any]) -> Parameters:
+    """
+    Read parameters from a config dictionary. This exists to support
+    reading parameter values from a config file to simplify batch jobs.
+    A config dictionary simply includes all parameter values as a
+    dictionary that was (in the common case) loaded from a JSON or
+    YAML file.
+    """
+    return Parameters(
+        datasets=config.get('datasets', ()),
+        list_datasets=config.get('list-datasets', False),
+        list_stores=config.get('list-stores', False),
+        namespace=config.get('namespace', ''),
+        stores=config.get('stores', ()),
+    )
 
 
 def parse_parameters(args: List[str]) -> Parameters:
