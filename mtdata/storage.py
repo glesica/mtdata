@@ -11,6 +11,7 @@ class StoreResult(NamedTuple):
 
     TODO: We should wrap read operation results as well
     """
+
     success: bool
     message: str
 

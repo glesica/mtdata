@@ -12,6 +12,7 @@ class Missoula911(Dataset):
     """
     Record of 911 events for Missoula city and county in Montana.
     """
+
     @property
     def dedup_facets(self) -> Iterable[str]:
         return []

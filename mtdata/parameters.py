@@ -17,6 +17,7 @@ class Parameters(NamedTuple):
     """
     Parameters supported by the CLI.
     """
+
     datasets: Tuple[str]
     list_datasets: bool
     list_stores: bool
