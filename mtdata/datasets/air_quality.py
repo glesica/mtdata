@@ -1,4 +1,4 @@
-from typing import Optional, List, Iterable
+from typing import List, Iterable
 
 from mtdata.dataset import Dataset, FetchResult, Row
 from mtdata.transformer import Transformer
@@ -18,6 +18,10 @@ _PARAMS = {
 
 
 class AirQuality(Dataset):
+    """
+    Air quality data for Montana.
+    """
+
     @staticmethod
     def name() -> str:
         return "air_quality"

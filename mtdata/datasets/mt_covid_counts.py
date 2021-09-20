@@ -1,9 +1,7 @@
-from typing import Optional, List, Iterable
+from typing import List, Iterable
 
 from mtdata.dataset import Dataset, FetchResult, Row
 from mtdata.transformer import Transformer
-
-# Source front-end display: https://www.arcgis.com/apps/MapSeries/index.html?appid=7c34f3412536439491adcc2103421d4b
 
 _URL = "https://services.arcgis.com/qnjIrwR8z5Izc0ij/ArcGIS/rest/services/COVID_Cases_Production_View/FeatureServer/0/query"
 
@@ -22,6 +20,12 @@ _PARAMS = {
 
 
 class CovidCounts(Dataset):
+    """
+    Covid-19 case data for Montana.
+
+    Source front-end display: https://www.arcgis.com/apps/MapSeries/index.html?appid=7c34f3412536439491adcc2103421d4b
+    """
+
     @staticmethod
     def name() -> str:
         return "mt_covid_counts"

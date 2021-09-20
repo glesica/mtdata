@@ -1,4 +1,4 @@
-from typing import Iterable
+from typing import Iterable, List
 
 from mtdata.manifest import ALL_DATASETS, ALL_STORES, get_store, get_dataset
 from mtdata.parameters import parse_parameters
@@ -9,10 +9,11 @@ def _choices_warning(kind: str, value: str, choices: Iterable[str]) -> None:
     print(f'invalid {kind} ({value}) - valid values: {", ".join(choices)}')
 
 
-def main() -> None:
-    from sys import argv
-
-    params = parse_parameters(argv[1:])
+def main(args: List[str]) -> None:
+    """
+    Run the application with the given command line.
+    """
+    params = parse_parameters(args)
 
     if params.list_datasets:
         print("DATASETS")
@@ -61,4 +62,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    main(sys.argv[1:])

@@ -39,7 +39,6 @@ class Dataset(ABC):
         The dataset name, which is used in the UI and for things
         like file and table names.
         """
-        pass
 
     @property
     @abstractmethod
@@ -56,7 +55,6 @@ class Dataset(ABC):
 
         Uses the transformed version of the field names.
         """
-        pass
 
     @property
     @abstractmethod
@@ -72,7 +70,6 @@ class Dataset(ABC):
 
         Uses the transformed version of the field names.
         """
-        pass
 
     @property
     @abstractmethod
@@ -81,11 +78,9 @@ class Dataset(ABC):
         The transformer to be applied to each row that is fetched from
         the data source before it is stored.
         """
-        pass
 
     @abstractmethod
     def fetch(self) -> FetchResult:
         """
         Fetch new data from the source (generally the web).
         """
-        pass

@@ -4,10 +4,19 @@ from mtdata._version import VERSION
 
 
 def comma_tuple(arg: str) -> Tuple[str, ...]:
+    """
+    A "type" that can be used with ``ArgumentParser`` to split a
+    comma-delimited list of values into an actual list.
+
+    TODO: Add a "type" to this that converts the values
+    """
     return tuple((a.strip() for a in arg.split(",")))
 
 
 class Parameters(NamedTuple):
+    """
+    Parameters supported by the CLI.
+    """
     datasets: Tuple[str]
     list_datasets: bool
     list_stores: bool
@@ -16,6 +25,9 @@ class Parameters(NamedTuple):
 
 
 def parse_parameters(args: List[str]) -> Parameters:
+    """
+    Turn a list of command line arguments into a ``Parameters`` object.
+    """
     from argparse import ArgumentParser
 
     parser = ArgumentParser(

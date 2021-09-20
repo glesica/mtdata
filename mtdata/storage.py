@@ -6,6 +6,11 @@ from mtdata.dataset import Row
 
 
 class StoreResult(NamedTuple):
+    """
+    The result of a write operation on a store.
+
+    TODO: We should wrap read operation results as well
+    """
     success: bool
     message: str
 
@@ -32,7 +37,6 @@ class Storage(ABC):
         case. So a storage class called ``FancyDatabase`` would be named
         "fancy-database".
         """
-        pass
 
     @property
     def namespace(self) -> str:
@@ -63,7 +67,6 @@ class Storage(ABC):
         de-duplication must occur before the new data are stored. See the
         documentation for ``Dataset`` for an explanation of these fields.
         """
-        pass
 
     @abstractmethod
     def load(self, name: str) -> Iterable[Row]:
@@ -76,7 +79,6 @@ class Storage(ABC):
         stored and should be used to construct any files or tables
         required by the storage implementation.
         """
-        pass
 
     @abstractmethod
     def replace(self, name: str, data: Iterable[Row]) -> StoreResult:
@@ -88,7 +90,6 @@ class Storage(ABC):
         stored and should be used to construct any files or tables
         required by the storage implementation.
         """
-        pass
 
     def get_path(self, name: str, extension: str) -> str:
         """
@@ -202,9 +203,17 @@ class JsonLines(Storage):
                 for line in file:
                     yield json.loads(line)
         except FileNotFoundError:
+            # TODO: Handle file not found better
             pass
 
     def load_backward(self, name: str) -> Iterable[Row]:
+        """
+        Load data from the store in reverse order. In other words, the
+        first row returned is the row that was most recently added to
+        the store, and so on.
+
+        TODO: Consider making this abstract on the base class
+        """
         try:
             with open(self.name_to_path(name), "rb") as file:
                 import json
@@ -212,9 +221,13 @@ class JsonLines(Storage):
                 for line in read_backward(file):
                     yield json.loads(line)
         except FileNotFoundError:
+            # TODO: Handle file not found better
             pass
 
     def name_to_path(self, name: str) -> str:
+        """
+        Convert a name to a file path with the correct extension.
+        """
         return self.get_path(name, "lines.json")
 
     def replace(self, name: str, data: Iterable[Row]) -> StoreResult:
