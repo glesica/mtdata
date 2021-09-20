@@ -1,0 +1,22 @@
+name: Continuous Integration
+on:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 8 * * *"
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    container:
+      image: glesica/mtdata:latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Type check
+        run: ./tool/check-types.sh
+      - name: Unit tests
+        run: ./tool/check-tests.sh
+      - name: Format check
+        run: ./tool/check-format.sh
+      - name: Lint check
+        run: ./tool/check-lints.sh
