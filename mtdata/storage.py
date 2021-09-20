@@ -292,12 +292,17 @@ class CSVBasic(Storage):
                 for row in islice(csvFile, 0, None):
                     values = list(row.strip('\n').split(","))
                     for i, value in enumerate(values):
-                        nValue = ast.literal_eval(value)
+                        nValue = ""
+                        try:
+                            nValue = ast.literal_eval(value)
+                        except (ValueError, SyntaxError):
+                            # Forces value to eval as string
+                            corrected = "\'" + value + "\'"
+                            nValue = ast.literal_eval(corrected)
                         values[i] = nValue
                     cursor.append(dict(zip(fieldnames, values)))
         except FileNotFoundError:
             pass
-        
         return cursor
 
     def replace(self, name: str, data: Iterable[Row]) -> StoreResult:
