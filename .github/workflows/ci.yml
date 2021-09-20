@@ -13,7 +13,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Update dependencies
-        run: pipenv sync --pre
+        run: pip install -r requirements.txt
       - name: Type check
         run: ./tool/check-types.sh
       - name: Unit tests
