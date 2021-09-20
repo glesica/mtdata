@@ -12,8 +12,10 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
+      - name: Install pipenv
+        run: pip install pipenv
       - name: Update dependencies
-        run: pip install -r requirements.txt
+        run: pipenv sync --dev
       - name: Type check
         run: ./tool/check-types.sh
       - name: Unit tests
