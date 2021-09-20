@@ -2,4 +2,4 @@
 
 set -e
 
-python -m mypy -p mtdata
+pipenv run python -m mypy -p mtdata

@@ -2,4 +2,4 @@
 
 set -e
 
-python -m pytest
+pipenv run python -m pytest

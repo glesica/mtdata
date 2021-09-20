@@ -2,4 +2,4 @@
 
 set -e
 
-python -m pylint mtdata/
+pipenv run python -m pylint mtdata/

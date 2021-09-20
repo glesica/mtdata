@@ -2,4 +2,4 @@
 
 set -e
 
-python -m black -t py39 mtdata/
+pipenv run python -m black -t py39 mtdata/
