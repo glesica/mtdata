@@ -11,7 +11,7 @@ tool to help people collect and store (mountains of) public data
 from a variety of sources.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    development
