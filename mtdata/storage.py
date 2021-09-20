@@ -301,11 +301,11 @@ class CSVBasic(Storage):
         )
 
         with open(self.name_to_path(name), 'a') as file:
-            import csv
+            from csv import DictWriter
             writer = None
             for row in deduped_data:
                 if writer is None:
-                    writer = csv.DictWriter(file, fieldnames=list(row.keys()))
+                    writer = DictWriter(file, fieldnames=list(row.keys()))
                 writer.writerow(row)
 
         return StoreResult(
@@ -314,88 +314,44 @@ class CSVBasic(Storage):
         )
 
     def load(self, name: str) -> Iterable[Row]:
+        from csv import DictReader
         try:
-            with open(self.name_to_path(name)) as csv_file:
-                fieldnames = self.get_field_names(csv_file)
-
-                # yield self.convert_csv_to_dict(csv_file, fieldnames)
-
-                import ast
-                for row in csv_file:
-                    values = list(row.strip('\n').split(","))
-                    for i, value in enumerate(values):
-                        value = value.strip('\r')
-                        nValue = ""
-                        try:
-                            nValue = ast.literal_eval(value)
-                        except (ValueError, SyntaxError):
-                            # Forces value to eval as string
-                            corrected = "\'" + value + "\'"
-                            nValue = ast.literal_eval(corrected)
-                        values[i] = nValue
-                    yield dict(zip(fieldnames, values))
-                
+            with open(self.name_to_path(name), 'r') as file:
+                reader = DictReader(file)
+                for row in reader:
+                    yield row
         except FileNotFoundError:
             pass
 
     def load_backward(self, name: str) -> Iterable[Row]:
-        fieldnames = []
-        try:
-            with open(self.name_to_path(name), 'r') as file:
-                fieldnames = self.get_field_names(file)
-        except FileNotFoundError:
-            pass
-        
-        try:
-            with open(self.name_to_path(name), 'rb') as csv_file:
-                # yield self.convert_csv_to_dict(read_backward(csv_file), fieldnames)
+        from csv import DictReader
+        from itertools import chain
 
-                import ast
+        # We have to kind of hack this because the reader doesn't have
+        # support for loading a CSV backward.
 
-                for row in read_backward(csv_file):
-                    values = list(row.strip('\n').split(","))
-                    for i, value in enumerate(values):
-                        value = value.strip('\r')
-                        nValue = ""
-                        try:
-                            nValue = ast.literal_eval(value)
-                        except (ValueError, SyntaxError):
-                            # Forces value to eval as string
-                            corrected = "\'" + value + "\'"
-                            nValue = ast.literal_eval(corrected)
-                        values[i] = nValue
-                    yield dict(zip(fieldnames, values))
-        except FileNotFoundError:
-            pass
+        # First grab the header line
+        with open(self.name_to_path(name), 'r') as file:
+            header_line = file.readline()
 
-    def get_field_names(self, csv_file):
-        first_row = csv_file.readlines(1)
-        if (len(first_row) == 0):
-            return []
-                
-        return tuple(first_row[0].strip('\n').split(","))
+        # Then read the file backward and parse each line, but adding
+        # the header line at the beginning of the iterator. Skip the
+        # last line of the iterator since that's the header row again.
+        with open(self.name_to_path(name), 'rb') as file:
+            reader = DictReader(chain([header_line], read_backward(file)))
 
-    def convert_csv_to_dict(self, csv_file, fieldnames) -> Iterable[Row]:
-        """
-        Convert csv rows into dictionaries
-        All data types are automatically checked and converted
-        """
+            curr = next(reader, None)
+            if curr is None:
+                return
 
-        import ast
-
-        for row in csv_file:
-            values = list(row.strip('\n').split(","))
-            for i, value in enumerate(values):
-                value = value.strip('\r')
-                nValue = ""
-                try:
-                    nValue = ast.literal_eval(value)
-                except (ValueError, SyntaxError):
-                    # Forces value to eval as string
-                    corrected = "\'" + value + "\'"
-                    nValue = ast.literal_eval(corrected)
-                values[i] = nValue
-            yield dict(zip(fieldnames, values))
+            while True:
+                prev = curr
+                curr = next(reader, None)
+                if prev is not None:
+                    if curr is None:
+                        break
+                    else:
+                        yield prev
 
     def replace(self, name: str, data: Iterable[Row]) -> StoreResult:
         with open(self.name_to_path(name), 'w') as file:
