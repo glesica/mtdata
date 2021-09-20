@@ -356,6 +356,9 @@ class CSVBasic(Storage):
             pass
 
     def load_backward(self, name: str) -> Iterable[Row]:
+        """
+        Load the data in reverse order. Used for de-duplication.
+        """
         from csv import DictReader, QUOTE_NONNUMERIC
         from itertools import chain
 
@@ -409,4 +412,7 @@ class CSVBasic(Storage):
         )
 
     def name_to_path(self, name: str) -> str:
+        """
+        Name to path conversion that assumes the file extension.
+        """
         return self.get_path(name, "csv")
