@@ -21,6 +21,7 @@ class FetchResult(NamedTuple):
     were no rows available (this will depend on the source). It should
     also be empty on failure.
     """
+
     success: bool
     message: str
     data: Iterable[Row]
@@ -38,7 +39,6 @@ class Dataset(ABC):
         The dataset name, which is used in the UI and for things
         like file and table names.
         """
-        pass
 
     @property
     @abstractmethod
@@ -53,9 +53,8 @@ class Dataset(ABC):
         because it occurred at the same time as a reading from a different
         location.
 
-        Uses the transformed version of the field names. 
+        Uses the transformed version of the field names.
         """
-        pass
 
     @property
     @abstractmethod
@@ -69,9 +68,8 @@ class Dataset(ABC):
         will be listed here because two or more fetches might retrieve the
         same reading instance.
 
-        Uses the transformed version of the field names. 
+        Uses the transformed version of the field names.
         """
-        pass
 
     @property
     @abstractmethod
@@ -80,11 +78,9 @@ class Dataset(ABC):
         The transformer to be applied to each row that is fetched from
         the data source before it is stored.
         """
-        pass
 
     @abstractmethod
     def fetch(self) -> FetchResult:
         """
         Fetch new data from the source (generally the web).
         """
-        pass

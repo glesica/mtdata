@@ -24,7 +24,7 @@ ALL_DATASETS: Iterable[Type[Dataset]] = (
 
 ALL_STORES: Iterable[Type[Storage]] = (
     JsonLines,
-    CSVBasic
+    CSVBasic,
 )
 
 # +-------------------------------------+
@@ -33,6 +33,10 @@ ALL_STORES: Iterable[Type[Storage]] = (
 
 
 def get_store(name: str) -> Optional[Type[Storage]]:
+    """
+    Get the store class with the given name, or ``None`` if there is
+    no store implementation in the manifest with that name.
+    """
     for store in ALL_STORES:
         if store.name() == name:
             return store
@@ -40,6 +44,10 @@ def get_store(name: str) -> Optional[Type[Storage]]:
 
 
 def get_dataset(name: str) -> Optional[Type[Dataset]]:
+    """
+    Get the dataset class with the given name, or ``None`` if there is
+    no dataset implementation in the manifest with that name.
+    """
     for dataset in ALL_DATASETS:
         if dataset.name() == name:
             return dataset

@@ -14,6 +14,7 @@ class UpdateResult(NamedTuple):
     the failure within the various sub-results is, at this time, up to
     the consumer.
     """
+
     success: bool
     fetch_result: FetchResult
     store_results: Iterable[StoreResult]
@@ -27,6 +28,7 @@ class Registry:
     the data they retrieve. This is where the actual ETL process happens,
     using the facilities provided by the datasets and stores.
     """
+
     _configs: RegistryList
 
     def __init__(self, configs: RegistryList = ()):

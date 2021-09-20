@@ -1,6 +1,6 @@
 from typing import Dict, Iterable
 
-from mtdata.dataset import Row
+from mtdata.row import Row
 
 
 def prune_fields(row: Row, keys: Iterable[str]) -> Row:
