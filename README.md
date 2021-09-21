@@ -31,6 +31,24 @@ Add or update dependencies in `Pipfile`, then run
 new lock file, and then update the `requirements.txt` file used to
 build the Docker image.
 
+### Checks
+
+Prior to making a pull request, run the various check scripts and
+fix any problems they identify.
+
+  * `./tool/check-tests.sh`
+  * `./tool/check-types.sh`
+  * `./tool/check-format.sh`
+  * `./tool/check-lints.sh`
+
+If the formatter needs to be run, do this with `./tool/run-format.sh`.
+
+### Documentation
+
+When the API changes, the auto-generated documentation needs to be
+updated. To do this, run `./tool/update-docs.sh`, then commit any
+changes that result.
+
 ### Docker Image
 
 The Docker image specified in `Dockerfile` bundles the code to make
