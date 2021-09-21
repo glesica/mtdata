@@ -6,5 +6,5 @@ set -e
 
 pipenv lock --pre
 pipenv sync --pre
-pip freeze > requirements.txt
+pip freeze --exclude mtdata > requirements.txt
 
