@@ -6,6 +6,8 @@ Includes a simple Python script that can be configured to extract
 data from various sources. This is run periodically through GitHub
 actions and the updated data are committed back to the repository.
 
+  * [Documentation](https://mt-data.readthedocs.io/en/latest/)
+
 ## Datasets
 
 Check out the README in the `data/` directory for a list of
