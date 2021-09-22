@@ -2,4 +2,4 @@
 
 set -e
 
-docker run --mount src="${PWD}/data",target=/data,type=bind glesica/mtdata:latest
+docker run --mount type=bind,src="${PWD}/data/",dst=/data glesica/mtdata python -m mtdata -n /data
