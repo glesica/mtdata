@@ -1,8 +1,8 @@
 from typing import Iterable, List
 
-from mtdata.manifest import ALL_DATASETS, ALL_STORES, get_store, get_dataset
-from mtdata.parameters import parse_parameters
-from mtdata.registry import Registry
+from .manifest import ALL_DATASETS, ALL_STORES, get_store, get_dataset
+from .parameters import parse_parameters
+from .registry import Registry
 
 
 def _choices_warning(kind: str, value: str, choices: Iterable[str]) -> None:

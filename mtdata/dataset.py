@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import NamedTuple, Iterable
 
-from mtdata.row import Row
-from mtdata.transformer import Transformer
+from .row import Row
+from .transformer import Transformer
 
 
 class FetchResult(NamedTuple):

@@ -1,7 +1,7 @@
 from typing import List, Iterable
 
-from mtdata.dataset import Dataset, FetchResult, Row
-from mtdata.transformer import Transformer
+from ..dataset import Dataset, FetchResult, Row
+from ..transformer import Transformer
 
 _URL = "https://www.airnowapi.org/aq/data/"
 

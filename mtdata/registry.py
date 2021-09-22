@@ -1,8 +1,8 @@
 from datetime import datetime
 from typing import Iterable, NamedTuple, Type, Tuple
 
-from mtdata.dataset import FetchResult, Dataset
-from mtdata.storage import Storage, StoreResult
+from .dataset import FetchResult, Dataset
+from .storage import Storage, StoreResult
 
 RegistryList = Iterable[Tuple[Type[Dataset], Iterable[Type[Storage]]]]
 

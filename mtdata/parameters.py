@@ -1,6 +1,6 @@
 from typing import NamedTuple, List, Tuple
 
-from mtdata._version import VERSION
+from ._version import VERSION
 
 
 def comma_tuple(arg: str) -> Tuple[str, ...]:

@@ -1,7 +1,7 @@
 from typing import Callable, Any, Optional, Dict, Tuple, Iterable, Union
 
-from mtdata.fields import rename_fields, prune_fields
-from mtdata.row import Row
+from .fields import rename_fields, prune_fields
+from .row import Row
 
 UpdaterFunction = Callable[[Any], Any]
 

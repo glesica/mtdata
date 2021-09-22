@@ -1,7 +1,7 @@
 from typing import List, Iterable
 
-from mtdata.dataset import Dataset, FetchResult, Row
-from mtdata.transformer import Transformer
+from ..dataset import Dataset, FetchResult, Row
+from ..transformer import Transformer
 
 _URL = "https://services.arcgis.com/qnjIrwR8z5Izc0ij/ArcGIS/rest/services/COVID_Cases_Production_View/FeatureServer/0/query"
 

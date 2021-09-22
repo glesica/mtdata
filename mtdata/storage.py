@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Iterable, List, Optional, NamedTuple
 
-from mtdata.backward import read_backward
-from mtdata.dataset import Row
+from .backward import read_backward
+from .dataset import Row
 
 
 class StoreResult(NamedTuple):

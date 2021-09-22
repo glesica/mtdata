@@ -1,10 +1,10 @@
 from typing import Iterable, Type, Optional
 
-from mtdata.dataset import Dataset
-from mtdata.datasets.air_quality import AirQuality
-from mtdata.datasets.missoula_911 import Missoula911
-from mtdata.datasets.mt_covid_counts import CovidCounts
-from mtdata.storage import CSVBasic, Storage, JsonLines
+from .dataset import Dataset
+from .datasets.air_quality import AirQuality
+from .datasets.missoula_911 import Missoula911
+from .datasets.mt_covid_counts import CovidCounts
+from .storage import CSVBasic, Storage, JsonLines
 
 # +----------------------------------------------------+
 # | Add new datasets below to have them made available |
