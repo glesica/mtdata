@@ -2,6 +2,7 @@ from datetime import datetime
 from typing import Iterable, NamedTuple, Type, Tuple
 
 from .dataset import FetchResult, Dataset
+from .retry import retry
 from .storage import Storage, StoreResult
 
 RegistryList = Iterable[Tuple[Type[Dataset], Iterable[Type[Storage]]]]
@@ -40,7 +41,7 @@ class Registry:
         """
         for dataset_class, store_classes in self._configs:
             dataset = dataset_class()
-            fetch_result = dataset.fetch()
+            fetch_result = retry(dataset.fetch)
 
             if fetch_result.success:
                 transformer = dataset.transformer
