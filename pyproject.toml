@@ -30,4 +30,5 @@ exclude = [
     "Dockerfile*",
     "data",
     "tool",
+    "temp",
 ]
