@@ -55,7 +55,10 @@ class AirQuality(Dataset):
     def fetch(self) -> FetchResult:
         import requests
 
-        resp = requests.get(_URL, _PARAMS)
+        # It seems as though AirNow let their cert expire,
+        # so we can just ignore it for now since we aren't
+        # doing anything terribly important.
+        resp = requests.get(_URL, _PARAMS, verify=False)
         data: List[Row] = resp.json()
 
         return FetchResult(resp.status_code == 200, resp.text, data)
