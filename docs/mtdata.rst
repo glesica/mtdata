@@ -60,6 +60,14 @@ mtdata.registry module
    :undoc-members:
    :show-inheritance:
 
+mtdata.retry module
+-------------------
+
+.. automodule:: mtdata.retry
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 mtdata.row module
 -----------------
 
