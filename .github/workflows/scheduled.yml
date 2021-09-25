@@ -1,4 +1,4 @@
-name: Scheduled run
+name: Scheduled 
 on:
   workflow_dispatch:
   schedule:
