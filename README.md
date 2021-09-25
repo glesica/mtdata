@@ -1,7 +1,7 @@
 # Mt. Data
 
 [![Continuous Integration](https://github.com/glesica/mtdata/actions/workflows/ci.yml/badge.svg)](https://github.com/glesica/mtdata/actions/workflows/ci.yml)
-
+[![Scheduled](https://github.com/glesica/mtdata/actions/workflows/scheduled.yml/badge.svg)](https://github.com/glesica/mtdata/actions/workflows/scheduled.yml)
 A tool to help anyone build a mountain of public data.
 
 Includes a simple Python script that can be configured to extract
