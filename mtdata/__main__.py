@@ -9,7 +9,7 @@ def _choices_warning(kind: str, value: str, choices: Iterable[str]) -> None:
     print(f'invalid {kind} ({value}) - valid values: {", ".join(choices)}')
 
 
-def main(args: List[str]) -> None:
+def _main(args: List[str]) -> None:
     """
     Run the application with the given command line.
     """
@@ -61,7 +61,15 @@ def main(args: List[str]) -> None:
         print(f"{update_result.name} - {status}")
 
 
-if __name__ == "__main__":
+def main():
+    """
+    Default entrypoint used py the PyPI package. This must remain
+    a zero parameter function.
+    """
     import sys
 
-    main(sys.argv[1:])
+    _main(sys.argv[1:])
+
+
+if __name__ == "__main__":
+    main()
