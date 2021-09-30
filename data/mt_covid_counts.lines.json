@@ -608,3 +608,58 @@
 {"active_cases": 319, "county": "Lincoln", "county_fips": "30053", "cumulative_cases": 2884, "cumulative_deaths": 45, "fetch_date": "2021-09-29", "new_cases": 31, "recovered_cases": 2520}
 {"active_cases": 25, "county": "Dawson", "county_fips": "30021", "cumulative_cases": 1346, "cumulative_deaths": 34, "fetch_date": "2021-09-29", "new_cases": 6, "recovered_cases": 1287}
 {"active_cases": 79, "county": "Richland", "county_fips": "30083", "cumulative_cases": 1538, "cumulative_deaths": 18, "fetch_date": "2021-09-29", "new_cases": 0, "recovered_cases": 1441}
+{"active_cases": 14, "county": "Powder River", "county_fips": "30075", "cumulative_cases": 211, "cumulative_deaths": 9, "fetch_date": "2021-09-30", "new_cases": 7, "recovered_cases": 188}
+{"active_cases": 73, "county": "Madison", "county_fips": "30057", "cumulative_cases": 1082, "cumulative_deaths": 8, "fetch_date": "2021-09-30", "new_cases": 15, "recovered_cases": 1001}
+{"active_cases": 113, "county": "Beaverhead", "county_fips": "30001", "cumulative_cases": 1265, "cumulative_deaths": 15, "fetch_date": "2021-09-30", "new_cases": 19, "recovered_cases": 1137}
+{"active_cases": 89, "county": "Big Horn", "county_fips": "30003", "cumulative_cases": 2876, "cumulative_deaths": 80, "fetch_date": "2021-09-30", "new_cases": 10, "recovered_cases": 2707}
+{"active_cases": 93, "county": "Stillwater", "county_fips": "30095", "cumulative_cases": 947, "cumulative_deaths": 19, "fetch_date": "2021-09-30", "new_cases": 0, "recovered_cases": 835}
+{"active_cases": 135, "county": "Park", "county_fips": "30067", "cumulative_cases": 1882, "cumulative_deaths": 26, "fetch_date": "2021-09-30", "new_cases": 3, "recovered_cases": 1721}
+{"active_cases": 789, "county": "Gallatin", "county_fips": "30031", "cumulative_cases": 18010, "cumulative_deaths": 72, "fetch_date": "2021-09-30", "new_cases": 80, "recovered_cases": 17149}
+{"active_cases": 31, "county": "Sweet Grass", "county_fips": "30097", "cumulative_cases": 504, "cumulative_deaths": 7, "fetch_date": "2021-09-30", "new_cases": 10, "recovered_cases": 466}
+{"active_cases": 249, "county": "Silver Bow", "county_fips": "30093", "cumulative_cases": 5096, "cumulative_deaths": 96, "fetch_date": "2021-09-30", "new_cases": 73, "recovered_cases": 4751}
+{"active_cases": 5, "county": "Carter", "county_fips": "30011", "cumulative_cases": 169, "cumulative_deaths": 5, "fetch_date": "2021-09-30", "new_cases": 0, "recovered_cases": 159}
+{"active_cases": 38, "county": "Deer Lodge", "county_fips": "30023", "cumulative_cases": 1426, "cumulative_deaths": 24, "fetch_date": "2021-09-30", "new_cases": 11, "recovered_cases": 1364}
+{"active_cases": 9, "county": "Treasure", "county_fips": "30103", "cumulative_cases": 71, "cumulative_deaths": 1, "fetch_date": "2021-09-30", "new_cases": 5, "recovered_cases": 61}
+{"active_cases": 2831, "county": "Yellowstone", "county_fips": "30111", "cumulative_cases": 23913, "cumulative_deaths": 329, "fetch_date": "2021-09-30", "new_cases": 256, "recovered_cases": 20753}
+{"active_cases": 104, "county": "Jefferson", "county_fips": "30043", "cumulative_cases": 1468, "cumulative_deaths": 9, "fetch_date": "2021-09-30", "new_cases": 31, "recovered_cases": 1355}
+{"active_cases": 1, "county": "Golden Valley", "county_fips": "30037", "cumulative_cases": 67, "cumulative_deaths": 2, "fetch_date": "2021-09-30", "new_cases": 0, "recovered_cases": 64}
+{"active_cases": 13, "county": "Wheatland", "county_fips": "30107", "cumulative_cases": 243, "cumulative_deaths": 10, "fetch_date": "2021-09-30", "new_cases": 2, "recovered_cases": 220}
+{"active_cases": 549, "county": "Ravalli", "county_fips": "30081", "cumulative_cases": 4387, "cumulative_deaths": 56, "fetch_date": "2021-09-30", "new_cases": 17, "recovered_cases": 3782}
+{"active_cases": 23, "county": "Musselshell", "county_fips": "30065", "cumulative_cases": 480, "cumulative_deaths": 15, "fetch_date": "2021-09-30", "new_cases": 3, "recovered_cases": 442}
+{"active_cases": 12, "county": "Fallon", "county_fips": "30025", "cumulative_cases": 410, "cumulative_deaths": 4, "fetch_date": "2021-09-30", "new_cases": 0, "recovered_cases": 394}
+{"active_cases": 69, "county": "Broadwater", "county_fips": "30007", "cumulative_cases": 722, "cumulative_deaths": 11, "fetch_date": "2021-09-30", "new_cases": 5, "recovered_cases": 642}
+{"active_cases": 53, "county": "Rosebud", "county_fips": "30087", "cumulative_cases": 1490, "cumulative_deaths": 55, "fetch_date": "2021-09-30", "new_cases": 17, "recovered_cases": 1382}
+{"active_cases": 21, "county": "Granite", "county_fips": "30039", "cumulative_cases": 302, "cumulative_deaths": 2, "fetch_date": "2021-09-30", "new_cases": 1, "recovered_cases": 279}
+{"active_cases": 161, "county": "Custer", "county_fips": "30017", "cumulative_cases": 1749, "cumulative_deaths": 23, "fetch_date": "2021-09-30", "new_cases": 31, "recovered_cases": 1565}
+{"active_cases": 22, "county": "Meagher", "county_fips": "30059", "cumulative_cases": 213, "cumulative_deaths": 7, "fetch_date": "2021-09-30", "new_cases": 3, "recovered_cases": 184}
+{"active_cases": 3, "county": "Prairie", "county_fips": "30079", "cumulative_cases": 150, "cumulative_deaths": 2, "fetch_date": "2021-09-30", "new_cases": 3, "recovered_cases": 145}
+{"active_cases": 13, "county": "Judith Basin", "county_fips": "30045", "cumulative_cases": 129, "cumulative_deaths": 1, "fetch_date": "2021-09-30", "new_cases": 2, "recovered_cases": 115}
+{"active_cases": 11, "county": "Wibaux", "county_fips": "30109", "cumulative_cases": 152, "cumulative_deaths": 7, "fetch_date": "2021-09-30", "new_cases": 3, "recovered_cases": 134}
+{"active_cases": 1, "county": "Petroleum", "county_fips": "30069", "cumulative_cases": 15, "cumulative_deaths": 1, "fetch_date": "2021-09-30", "new_cases": 0, "recovered_cases": 13}
+{"active_cases": 62, "county": "Mineral", "county_fips": "30061", "cumulative_cases": 579, "cumulative_deaths": 9, "fetch_date": "2021-09-30", "new_cases": 9, "recovered_cases": 508}
+{"active_cases": 25, "county": "Powell", "county_fips": "30077", "cumulative_cases": 1178, "cumulative_deaths": 14, "fetch_date": "2021-09-30", "new_cases": 1, "recovered_cases": 1139}
+{"active_cases": 1790, "county": "Missoula", "county_fips": "30063", "cumulative_cases": 13488, "cumulative_deaths": 128, "fetch_date": "2021-09-30", "new_cases": 165, "recovered_cases": 11570}
+{"active_cases": 1307, "county": "Cascade", "county_fips": "30013", "cumulative_cases": 13010, "cumulative_deaths": 210, "fetch_date": "2021-09-30", "new_cases": 87, "recovered_cases": 11493}
+{"active_cases": 36, "county": "Fergus", "county_fips": "30027", "cumulative_cases": 1430, "cumulative_deaths": 36, "fetch_date": "2021-09-30", "new_cases": 1, "recovered_cases": 1358}
+{"active_cases": 579, "county": "Lewis and Clark", "county_fips": "30049", "cumulative_cases": 9101, "cumulative_deaths": 101, "fetch_date": "2021-09-30", "new_cases": 53, "recovered_cases": 8421}
+{"active_cases": 7, "county": "Garfield", "county_fips": "30033", "cumulative_cases": 110, "cumulative_deaths": 3, "fetch_date": "2021-09-30", "new_cases": 6, "recovered_cases": 100}
+{"active_cases": 272, "county": "Lake", "county_fips": "30047", "cumulative_cases": 3146, "cumulative_deaths": 52, "fetch_date": "2021-09-30", "new_cases": 51, "recovered_cases": 2822}
+{"active_cases": 3, "county": "McCone", "county_fips": "30055", "cumulative_cases": 212, "cumulative_deaths": 2, "fetch_date": "2021-09-30", "new_cases": 0, "recovered_cases": 207}
+{"active_cases": 43, "county": "Teton", "county_fips": "30099", "cumulative_cases": 714, "cumulative_deaths": 7, "fetch_date": "2021-09-30", "new_cases": 8, "recovered_cases": 664}
+{"active_cases": 28, "county": "Chouteau", "county_fips": "30015", "cumulative_cases": 612, "cumulative_deaths": 8, "fetch_date": "2021-09-30", "new_cases": 9, "recovered_cases": 576}
+{"active_cases": 165, "county": "Sanders", "county_fips": "30089", "cumulative_cases": 1148, "cumulative_deaths": 16, "fetch_date": "2021-09-30", "new_cases": 46, "recovered_cases": 967}
+{"active_cases": 36, "county": "Pondera", "county_fips": "30073", "cumulative_cases": 683, "cumulative_deaths": 4, "fetch_date": "2021-09-30", "new_cases": 7, "recovered_cases": 643}
+{"active_cases": 8, "county": "Roosevelt", "county_fips": "30085", "cumulative_cases": 1829, "cumulative_deaths": 57, "fetch_date": "2021-09-30", "new_cases": 0, "recovered_cases": 1764}
+{"active_cases": 142, "county": "Hill", "county_fips": "30041", "cumulative_cases": 2773, "cumulative_deaths": 52, "fetch_date": "2021-09-30", "new_cases": 16, "recovered_cases": 2579}
+{"active_cases": 33, "county": "Blaine", "county_fips": "30005", "cumulative_cases": 983, "cumulative_deaths": 24, "fetch_date": "2021-09-30", "new_cases": 7, "recovered_cases": 926}
+{"active_cases": 37, "county": "Liberty", "county_fips": "30051", "cumulative_cases": 226, "cumulative_deaths": 1, "fetch_date": "2021-09-30", "new_cases": 2, "recovered_cases": 188}
+{"active_cases": 22, "county": "Phillips", "county_fips": "30071", "cumulative_cases": 615, "cumulative_deaths": 19, "fetch_date": "2021-09-30", "new_cases": 8, "recovered_cases": 574}
+{"active_cases": 36, "county": "Toole", "county_fips": "30101", "cumulative_cases": 900, "cumulative_deaths": 11, "fetch_date": "2021-09-30", "new_cases": 7, "recovered_cases": 853}
+{"active_cases": 52, "county": "Valley", "county_fips": "30105", "cumulative_cases": 1049, "cumulative_deaths": 20, "fetch_date": "2021-09-30", "new_cases": 9, "recovered_cases": 977}
+{"active_cases": 5, "county": "Daniels", "county_fips": "30019", "cumulative_cases": 227, "cumulative_deaths": 9, "fetch_date": "2021-09-30", "new_cases": 1, "recovered_cases": 213}
+{"active_cases": 80, "county": "Glacier", "county_fips": "30035", "cumulative_cases": 1877, "cumulative_deaths": 47, "fetch_date": "2021-09-30", "new_cases": 9, "recovered_cases": 1750}
+{"active_cases": 1170, "county": "Flathead", "county_fips": "30029", "cumulative_cases": 17101, "cumulative_deaths": 153, "fetch_date": "2021-09-30", "new_cases": 179, "recovered_cases": 15778}
+{"active_cases": 13, "county": "Sheridan", "county_fips": "30091", "cumulative_cases": 479, "cumulative_deaths": 6, "fetch_date": "2021-09-30", "new_cases": 1, "recovered_cases": 460}
+{"active_cases": 319, "county": "Lincoln", "county_fips": "30053", "cumulative_cases": 2884, "cumulative_deaths": 45, "fetch_date": "2021-09-30", "new_cases": 31, "recovered_cases": 2520}
+{"active_cases": 25, "county": "Dawson", "county_fips": "30021", "cumulative_cases": 1346, "cumulative_deaths": 34, "fetch_date": "2021-09-30", "new_cases": 6, "recovered_cases": 1287}
+{"active_cases": 79, "county": "Richland", "county_fips": "30083", "cumulative_cases": 1538, "cumulative_deaths": 18, "fetch_date": "2021-09-30", "new_cases": 0, "recovered_cases": 1441}
