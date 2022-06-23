@@ -1,10 +1,13 @@
 # Mt. Data
 
-A tool to help anyone build a mountain of public data.
+**Mt. Data** (pronounced "mount data", like "Mount Everest") is a
+tool to help people collect and store (mountains of) public data
+from a variety of sources.
 
-Includes a simple Python script that can be configured to extract
-data from various sources. This is run periodically through GitHub
-actions and the updated data are committed back to the repository.
+Mt. Data includes a simple Python script that can be configured
+to extract data from various sources. This is run periodically
+through GitHub actions and the updated data are committed back to
+the repository.
 
   * [Documentation](https://mt-data.readthedocs.io/en/latest/)
 

@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 requests = "*"
 types-requests = "*"
+m2r2 = "*"
 
 [dev-packages]
 flit = "*"

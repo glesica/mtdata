@@ -3,23 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Mt. Data
-========
-
-**Mt. Data** (pronounced "mount data", like "Mount Everest") is a
-tool to help people collect and store (mountains of) public data
-from a variety of sources.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :hidden:
 
    development
+
+
+.. mdinclude:: ../README.md
+
 
 Installation
 ------------
 
-
+There are two main ways to use Mt. Data, Pip and Docker.
 
 Concepts
 --------
@@ -37,9 +35,6 @@ Usage
 -----
 
 
-
-Indices and tables
-==================
 
 * :ref:`genindex`
 * :ref:`modindex`
