@@ -229058,3 +229058,164 @@
 {"agency": "MPD", "cfs_number": "2026-00011500", "latitude": 46.8853585610207, "longitude": -114.03857727881, "timestamp": "10/14/2026 11:54:15 PM", "title": "Welfare Check"}
 {"agency": "MPD", "cfs_number": "2026-00012077", "latitude": 46.8853585610207, "longitude": -114.03857727881, "timestamp": "10/14/2026 11:54:15 PM", "title": "Welfare Check"}
 {"agency": "MPD", "cfs_number": "2026-00043736", "latitude": 46.8853585610207, "longitude": -114.03857727881, "timestamp": "10/14/2026 11:54:15 PM", "title": "Welfare Check"}
+{"agency": "MPD", "cfs_number": "2026-00043737", "latitude": 46.8413755614294, "longitude": -114.006442794677, "timestamp": "10/15/2026 12:12:52 AM", "title": "Suspicious Activity"}
+{"agency": "MPD", "cfs_number": "2026-00043738", "latitude": 46.8222055651526, "longitude": -114.027880794396, "timestamp": "10/15/2026 12:27:41 AM", "title": "Suspicious Activity"}
+{"agency": "MPD", "cfs_number": "2026-00043741", "latitude": 46.8423565634837, "longitude": -114.027808790136, "timestamp": "10/15/2026 1:56:00 AM", "title": "Harassment"}
+{"agency": "MCSO", "cfs_number": "2026-00022014", "latitude": 46.7465785779862, "longitude": -114.093936297019, "timestamp": "10/15/2026 3:35:22 AM", "title": "Loud Noise Complaint"}
+{"agency": "MCSO", "cfs_number": "2026-00022015", "latitude": 46.8890215682331, "longitude": -114.11360576283, "timestamp": "10/15/2026 3:40:56 AM", "title": "Suspicious Activity"}
+{"agency": "MPD", "cfs_number": "2026-00043744", "latitude": 46.8726145576093, "longitude": -113.993995790566, "timestamp": "10/15/2026 4:08:37 AM", "title": "Suspicious Activity"}
+{"agency": "MPD", "cfs_number": "2026-00043746", "latitude": 46.8768355587609, "longitude": -114.008985286626, "timestamp": "10/15/2026 4:26:33 AM", "title": "Person Needs Assistance"}
+{"agency": "MPD", "cfs_number": "2026-00043748", "latitude": 46.929818562899, "longitude": -114.093738258146, "timestamp": "10/15/2026 5:29:21 AM", "title": "Burglary Alarm"}
+{"agency": "MPD", "cfs_number": "2026-00043749", "latitude": 46.8362815650863, "longitude": -114.038833789191, "timestamp": "10/15/2026 5:33:58 AM", "title": "Drugs"}
+{"agency": "MPD", "cfs_number": "2026-00043750", "latitude": 46.8721285577205, "longitude": -113.994706790525, "timestamp": "10/15/2026 5:35:42 AM", "title": "Person to be Removed"}
+{"agency": "MPD", "cfs_number": "2026-00043751", "latitude": 46.8833065578391, "longitude": -114.005097286038, "timestamp": "10/15/2026 6:16:21 AM", "title": "Accident - Hit and Run"}
+{"agency": "MPD", "cfs_number": "2026-00043752", "latitude": 46.8745765574139, "longitude": -113.993658290217, "timestamp": "10/15/2026 6:57:20 AM", "title": "Burglary Alarm"}
+{"agency": "MPD", "cfs_number": "2026-00043755", "latitude": 46.8508705641161, "longitude": -114.041151285623, "timestamp": "10/15/2026 7:35:43 AM", "title": "Assist Outside Agency"}
+{"agency": "MPD", "cfs_number": "2026-00043760", "latitude": 46.8275245662141, "longitude": -114.042897290225, "timestamp": "10/15/2026 7:58:41 AM", "title": "Hazards"}
+{"agency": "MPD", "cfs_number": "2026-00043762", "latitude": 46.8716695574113, "longitude": -113.991237291327, "timestamp": "10/15/2026 8:03:56 AM", "title": "Person Needs Assistance"}
+{"agency": "MPD", "cfs_number": "2026-00043763", "latitude": 46.8968875617141, "longitude": -114.054966273031, "timestamp": "10/15/2026 8:07:39 AM", "title": "Needs Officer's Advice"}
+{"agency": "MCSO", "cfs_number": "2026-00012085", "latitude": 46.8726865527053, "longitude": -113.945008800499, "timestamp": "10/15/2026 8:13:20 AM", "title": "Person Needs Assistance"}
+{"agency": "MCSO", "cfs_number": "2026-00022018", "latitude": 46.8492775643189, "longitude": -114.041866785817, "timestamp": "10/15/2026 8:33:42 AM", "title": "Abandoned Vehicle"}
+{"agency": "MCSO", "cfs_number": "2026-00022019", "latitude": 46.6775035822438, "longitude": -114.079320314515, "timestamp": "10/15/2026 8:50:00 AM", "title": "Burglary Alarm"}
+{"agency": "MCSO", "cfs_number": "2026-00022020", "latitude": 46.868672553528, "longitude": -113.949922800354, "timestamp": "10/15/2026 8:50:15 AM", "title": "Theft"}
+{"agency": "MPD", "cfs_number": "2026-00043771", "latitude": 46.8342025653224, "longitude": -114.039481789501, "timestamp": "10/15/2026 9:01:32 AM", "title": "Hazards"}
+{"agency": "MPD", "cfs_number": "2026-00043772", "latitude": 46.8350437340943, "longitude": -114.039211146044, "timestamp": "10/15/2026 9:04:02 AM", "title": "Camping in the City"}
+{"agency": "MPD", "cfs_number": "2026-00043773", "latitude": 46.8535165628836, "longitude": -114.031003787118, "timestamp": "10/15/2026 9:04:29 AM", "title": "Burglary"}
+{"agency": "MPD", "cfs_number": "2026-00043775", "latitude": 46.8867715571183, "longitude": -114.000745786184, "timestamp": "10/15/2026 9:14:09 AM", "title": "Suspicious Activity"}
+{"agency": "MPD", "cfs_number": "2026-00043777", "latitude": 46.8786715596326, "longitude": -114.019209284161, "timestamp": "10/15/2026 9:27:09 AM", "title": "Welfare Check"}
+{"agency": "MPD", "cfs_number": "2026-00043778", "latitude": 46.8768355587609, "longitude": -114.008985286626, "timestamp": "10/15/2026 9:32:34 AM", "title": "Drugs"}
+{"agency": "MCSO", "cfs_number": "2026-00001034", "latitude": 46.8727763520278, "longitude": -113.945527237265, "timestamp": "10/15/2026 9:32:54 AM", "title": "Vandalism"}
+{"agency": "MCSO", "cfs_number": "2026-00022022", "latitude": 46.8727763520278, "longitude": -113.945527237265, "timestamp": "10/15/2026 9:32:54 AM", "title": "Vandalism"}
+{"agency": "MPD", "cfs_number": "2026-00043780", "latitude": 46.8590605587434, "longitude": -113.994162293413, "timestamp": "10/15/2026 9:56:41 AM", "title": "Parking/Junk Vehicle Complaint"}
+{"agency": "MPD", "cfs_number": "2026-00043783", "latitude": 46.8485215640815, "longitude": -114.038869786585, "timestamp": "10/15/2026 10:18:39 AM", "title": "Disorderly Conduct"}
+{"agency": "MPD", "cfs_number": "2026-00043784", "latitude": 46.8903175568665, "longitude": -114.001146285347, "timestamp": "10/15/2026 10:22:49 AM", "title": "Harassment"}
+{"agency": "MCSO", "cfs_number": "2026-00012086", "latitude": 46.8498355713475, "longitude": -114.112597771375, "timestamp": "10/15/2026 10:45:06 AM", "title": "Person Needs Assistance"}
+{"agency": "MPD", "cfs_number": "2026-00043786", "latitude": 46.8734137146171, "longitude": -113.942147669865, "timestamp": "10/15/2026 10:54:08 AM", "title": "Recovered Stolen Vehicle"}
+{"agency": "MPD", "cfs_number": "2026-00043790", "latitude": 46.8713365579073, "longitude": -113.995921790447, "timestamp": "10/15/2026 10:57:29 AM", "title": "Disorderly Conduct"}
+{"agency": "MPD", "cfs_number": "2026-00043788", "latitude": 46.880615559723, "longitude": -114.02171128324, "timestamp": "10/15/2026 10:58:46 AM", "title": "Hazards"}
+{"agency": "MCSO", "cfs_number": "2026-00012087", "latitude": 46.888443983, "longitude": -114.064513652, "timestamp": "10/15/2026 11:02:39 AM", "title": "Person Needs Assistance"}
+{"agency": "MPD", "cfs_number": "2026-00043794", "latitude": 46.8683215604784, "longitude": -114.019146286376, "timestamp": "10/15/2026 11:08:34 AM", "title": "Welfare Check"}
+{"agency": "MPD", "cfs_number": "2026-00043791", "latitude": 46.8690235597154, "longitude": -114.012094787657, "timestamp": "10/15/2026 11:12:02 AM", "title": "Trespassing"}
+{"agency": "MPD", "cfs_number": "2026-00043792", "latitude": 46.8562615612321, "longitude": -114.016747789426, "timestamp": "10/15/2026 11:12:17 AM", "title": "Court Papers Served"}
+{"agency": "MCSO", "cfs_number": "2026-00022028", "latitude": 46.870085563517, "longitude": -114.050970279548, "timestamp": "10/15/2026 11:16:02 AM", "title": "Welfare Check"}
+{"agency": "MPD", "cfs_number": "2026-00043793", "latitude": 46.8398455646249, "longitude": -114.037155288774, "timestamp": "10/15/2026 11:17:27 AM", "title": "Parking/Junk Vehicle Complaint"}
+{"agency": "MPD", "cfs_number": "2026-00043809", "latitude": 46.8779245572136, "longitude": -113.994414289351, "timestamp": "10/15/2026 12:04:34 PM", "title": "Needs Officer's Advice"}
+{"agency": "MPD", "cfs_number": "2026-00043801", "latitude": 46.8683215604784, "longitude": -114.019146286376, "timestamp": "10/15/2026 12:07:00 PM", "title": "Person to be Removed"}
+{"agency": "MCSO", "cfs_number": "2026-00001035", "latitude": 46.7475325767848, "longitude": -114.082677299095, "timestamp": "10/15/2026 12:07:16 PM", "title": "Accident - No Injury"}
+{"agency": "MPD", "cfs_number": "2026-00043803", "latitude": 46.8818935597912, "longitude": -114.023443782617, "timestamp": "10/15/2026 12:12:52 PM", "title": "Camping in the City"}
+{"agency": "MPD", "cfs_number": "2026-00022030", "latitude": 46.8731725577663, "longitude": -113.996025290035, "timestamp": "10/15/2026 12:13:47 PM", "title": "Intimidation"}
+{"agency": "MPD", "cfs_number": "2026-00043806", "latitude": 46.8731725577663, "longitude": -113.996025290035, "timestamp": "10/15/2026 12:13:47 PM", "title": "Intimidation"}
+{"agency": "MPD", "cfs_number": "2026-00043832", "latitude": 46.9163725579903, "longitude": -114.033766773175, "timestamp": "10/15/2026 12:17:19 PM", "title": "Needs Officer's Advice"}
+{"agency": "MPD", "cfs_number": "2026-00043805", "latitude": 46.8889765618626, "longitude": -114.049957775732, "timestamp": "10/15/2026 12:19:06 PM", "title": "Abandoned Vehicle"}
+{"agency": "MPD", "cfs_number": "2026-00043808", "latitude": 46.88420656082, "longitude": -114.035625279654, "timestamp": "10/15/2026 12:27:34 PM", "title": "Accident - No Injury"}
+{"agency": "MPD", "cfs_number": "2026-00043812", "latitude": 46.8510325617454, "longitude": -114.01757129037, "timestamp": "10/15/2026 12:41:37 PM", "title": "Accident - No Injury"}
+{"agency": "MCSO", "cfs_number": "2026-00022031", "latitude": 46.8721555465745, "longitude": -113.883219313178, "timestamp": "10/15/2026 12:42:24 PM", "title": "Person Needs Assistance"}
+{"agency": "MPD", "cfs_number": "2026-00000181", "latitude": 46.702379519992, "longitude": -113.472922932806, "timestamp": "10/15/2026 12:51:18 PM", "title": "Accident - Injury"}
+{"agency": "MPD", "cfs_number": "2026-00001036", "latitude": 46.702379519992, "longitude": -113.472922932806, "timestamp": "10/15/2026 12:51:18 PM", "title": "Accident - Injury"}
+{"agency": "MPD", "cfs_number": "2026-00003154", "latitude": 46.702379519992, "longitude": -113.472922932806, "timestamp": "10/15/2026 12:51:18 PM", "title": "Accident - Injury"}
+{"agency": "MPD", "cfs_number": "2026-00011509", "latitude": 46.702379519992, "longitude": -113.472922932806, "timestamp": "10/15/2026 12:51:18 PM", "title": "Accident - Injury"}
+{"agency": "MPD", "cfs_number": "2026-00022032", "latitude": 46.702379519992, "longitude": -113.472922932806, "timestamp": "10/15/2026 12:51:18 PM", "title": "Accident - Injury"}
+{"agency": "MPD", "cfs_number": "2026-00043816", "latitude": 46.8957715525943, "longitude": -113.962941291944, "timestamp": "10/15/2026 12:51:29 PM", "title": "Parking/Junk Vehicle Complaint"}
+{"agency": "MPD", "cfs_number": "2026-00043819", "latitude": 46.8963925632001, "longitude": -114.069397770212, "timestamp": "10/15/2026 12:52:32 PM", "title": "Welfare Check"}
+{"agency": "MPD", "cfs_number": "2026-00043818", "latitude": 46.8850525611211, "longitude": -114.039328778723, "timestamp": "10/15/2026 12:54:48 PM", "title": "Person Needs Assistance"}
+{"agency": "MPD", "cfs_number": "2026-00043817", "latitude": 46.8850525611211, "longitude": -114.039328778723, "timestamp": "10/15/2026 12:56:20 PM", "title": "Hazards"}
+{"agency": "MPD", "cfs_number": "2026-00012089", "latitude": 46.803791570117, "longitude": -114.062382291309, "timestamp": "10/15/2026 1:04:37 PM", "title": "Person Needs Assistance"}
+{"agency": "MPD", "cfs_number": "2026-00043821", "latitude": 46.803791570117, "longitude": -114.062382291309, "timestamp": "10/15/2026 1:04:37 PM", "title": "Person Needs Assistance"}
+{"agency": "MCSO", "cfs_number": "2026-00012088", "latitude": 46.8758923653255, "longitude": -113.999588446076, "timestamp": "10/15/2026 1:11:41 PM", "title": "Person Needs Assistance"}
+{"agency": "MPD", "cfs_number": "2026-00043823", "latitude": 46.8743605575343, "longitude": -113.994684290055, "timestamp": "10/15/2026 1:17:57 PM", "title": "Person Needs Assistance"}
+{"agency": "MPD", "cfs_number": "2026-00006327", "latitude": 46.8202075657996, "longitude": -114.032709293841, "timestamp": "10/15/2026 1:30:09 PM", "title": "Medical Transfer"}
+{"agency": "MPD", "cfs_number": "2026-00011513", "latitude": 46.8202075657996, "longitude": -114.032709293841, "timestamp": "10/15/2026 1:30:09 PM", "title": "Medical Transfer"}
+{"agency": "MPD", "cfs_number": "2026-00012091", "latitude": 46.8202075657996, "longitude": -114.032709293841, "timestamp": "10/15/2026 1:30:09 PM", "title": "Medical Transfer"}
+{"agency": "MPD", "cfs_number": "2026-00043827", "latitude": 46.8202075657996, "longitude": -114.032709293841, "timestamp": "10/15/2026 1:30:09 PM", "title": "Medical Transfer"}
+{"agency": "MPD", "cfs_number": "2026-00022035", "latitude": 46.874012, "longitude": -113.996429, "timestamp": "10/15/2026 1:31:07 PM", "title": "Assist Outside Agency"}
+{"agency": "MPD", "cfs_number": "2026-00043825", "latitude": 46.874012, "longitude": -113.996429, "timestamp": "10/15/2026 1:31:07 PM", "title": "Assist Outside Agency"}
+{"agency": "MCSO", "cfs_number": "2026-00043826", "latitude": 46.8899575611535, "longitude": -114.043680276796, "timestamp": "10/15/2026 1:44:52 PM", "title": "Shoplifting"}
+{"agency": "MPD", "cfs_number": "2026-00043830", "latitude": 46.8957805523243, "longitude": -113.960250292489, "timestamp": "10/15/2026 1:57:36 PM", "title": "Parking/Junk Vehicle Complaint"}
+{"agency": "MPD", "cfs_number": "2026-00043835", "latitude": 46.8542455615525, "longitude": -114.018291289541, "timestamp": "10/15/2026 2:18:50 PM", "title": "Accident - No Injury"}
+{"agency": "MPD", "cfs_number": "2026-00043837", "latitude": 46.866755697831, "longitude": -114.032050587108, "timestamp": "10/15/2026 2:22:25 PM", "title": "Person to be Removed"}
+{"agency": "MCSO", "cfs_number": "2026-00022036", "latitude": 46.8834685462132, "longitude": -113.888970309603, "timestamp": "10/15/2026 2:26:49 PM", "title": "Needs Officer's Advice"}
+{"agency": "MCSO", "cfs_number": "2026-00022038", "latitude": 46.931724589, "longitude": -114.107271852, "timestamp": "10/15/2026 2:31:55 PM", "title": "Harassment"}
+{"agency": "MCSO", "cfs_number": "2026-00003156", "latitude": 46.8198475707576, "longitude": -114.082038283927, "timestamp": "10/15/2026 2:36:08 PM", "title": "Accident - Injury"}
+{"agency": "MCSO", "cfs_number": "2026-00011516", "latitude": 46.8198475707576, "longitude": -114.082038283927, "timestamp": "10/15/2026 2:36:08 PM", "title": "Accident - Injury"}
+{"agency": "MCSO", "cfs_number": "2026-00022037", "latitude": 46.8198475707576, "longitude": -114.082038283927, "timestamp": "10/15/2026 2:36:08 PM", "title": "Accident - Injury"}
+{"agency": "MCSO", "cfs_number": "2026-00022039", "latitude": 46.8751615580296, "longitude": -114.000295788746, "timestamp": "10/15/2026 2:51:48 PM", "title": "Transport of Person"}
+{"agency": "MPD", "cfs_number": "2026-00043841", "latitude": 46.8834685592013, "longitude": -114.018844783214, "timestamp": "10/15/2026 3:42:30 PM", "title": "Parking/Junk Vehicle Complaint"}
+{"agency": "MPD", "cfs_number": "2026-00043842", "latitude": 46.8686455600291, "longitude": -114.014920787164, "timestamp": "10/15/2026 3:43:55 PM", "title": "Camping in the City"}
+{"agency": "MPD", "cfs_number": "2026-00043845", "latitude": 46.8453985641934, "longitude": -114.037416287543, "timestamp": "10/15/2026 3:47:24 PM", "title": "Privacy in Communications"}
+{"agency": "MPD", "cfs_number": "2026-00043844", "latitude": 46.8781855598122, "longitude": -114.020604283982, "timestamp": "10/15/2026 4:04:07 PM", "title": "Person to be Removed"}
+{"agency": "MCSO", "cfs_number": "2026-00022044", "latitude": 47.1755004780474, "longitude": -113.45004933697, "timestamp": "10/15/2026 4:11:26 PM", "title": "Assist Outside Agency"}
+{"agency": "MPD", "cfs_number": "2026-00043847", "latitude": 46.8610495555709, "longitude": -113.9640662991, "timestamp": "10/15/2026 4:13:37 PM", "title": "Person Needs Assistance"}
+{"agency": "MPD", "cfs_number": "2026-00043848", "latitude": 46.8669805605295, "longitude": -114.018552286781, "timestamp": "10/15/2026 4:21:38 PM", "title": "Hazards"}
+{"agency": "MCSO", "cfs_number": "2026-00000364", "latitude": 46.8704545531258, "longitude": -113.947371300493, "timestamp": "10/15/2026 5:00:51 PM", "title": "Accident - Injury"}
+{"agency": "MCSO", "cfs_number": "2026-00003158", "latitude": 46.8704545531258, "longitude": -113.947371300493, "timestamp": "10/15/2026 5:00:51 PM", "title": "Accident - Injury"}
+{"agency": "MCSO", "cfs_number": "2026-00011521", "latitude": 46.8704545531258, "longitude": -113.947371300493, "timestamp": "10/15/2026 5:00:51 PM", "title": "Accident - Injury"}
+{"agency": "MCSO", "cfs_number": "2026-00022045", "latitude": 46.8704545531258, "longitude": -113.947371300493, "timestamp": "10/15/2026 5:00:51 PM", "title": "Accident - Injury"}
+{"agency": "MPD", "cfs_number": "2026-00043851", "latitude": 46.9137085606108, "longitude": -114.057738268882, "timestamp": "10/15/2026 5:05:06 PM", "title": "Parking/Junk Vehicle Complaint"}
+{"agency": "MPD", "cfs_number": "2026-00043850", "latitude": 46.8442465642326, "longitude": -114.0368582879, "timestamp": "10/15/2026 5:09:54 PM", "title": "Bicycle Moving Violation"}
+{"agency": "MPD", "cfs_number": "2026-00006334", "latitude": 46.8731725577663, "longitude": -113.996025290035, "timestamp": "10/15/2026 5:19:14 PM", "title": "Accident - Vehicle vs Pedestrian or Bike Injury"}
+{"agency": "MPD", "cfs_number": "2026-00011522", "latitude": 46.8731725577663, "longitude": -113.996025290035, "timestamp": "10/15/2026 5:19:14 PM", "title": "Accident - Vehicle vs Pedestrian or Bike Injury"}
+{"agency": "MPD", "cfs_number": "2026-00012098", "latitude": 46.8731725577663, "longitude": -113.996025290035, "timestamp": "10/15/2026 5:19:14 PM", "title": "Accident - Vehicle vs Pedestrian or Bike Injury"}
+{"agency": "MPD", "cfs_number": "2026-00043853", "latitude": 46.8731725577663, "longitude": -113.996025290035, "timestamp": "10/15/2026 5:19:14 PM", "title": "Accident - Vehicle vs Pedestrian or Bike Injury"}
+{"agency": "MCSO", "cfs_number": "2026-00003159", "latitude": 46.815554571813, "longitude": -114.089062783415, "timestamp": "10/15/2026 5:19:24 PM", "title": "Assist Fire"}
+{"agency": "MCSO", "cfs_number": "2026-00022046", "latitude": 46.815554571813, "longitude": -114.089062783415, "timestamp": "10/15/2026 5:19:24 PM", "title": "Assist Fire"}
+{"agency": "MCSO", "cfs_number": "2026-00022047", "latitude": 46.8080125680644, "longitude": -114.045313793871, "timestamp": "10/15/2026 5:24:19 PM", "title": "Fish and Game"}
+{"agency": "MPD", "cfs_number": "2026-00043854", "latitude": 46.8345445650698, "longitude": -114.037236289883, "timestamp": "10/15/2026 5:27:42 PM", "title": "Suspicious Activity"}
+{"agency": "MPD", "cfs_number": "2026-00043856", "latitude": 46.8732085589206, "longitude": -114.00759478768, "timestamp": "10/15/2026 5:58:41 PM", "title": "Domestic Animal"}
+{"agency": "MPD", "cfs_number": "2026-00043857", "latitude": 46.8609955596578, "longitude": -114.004903790822, "timestamp": "10/15/2026 6:00:02 PM", "title": "Burglary Alarm"}
+{"agency": "MPD", "cfs_number": "2026-00043858", "latitude": 46.8609955596578, "longitude": -114.004903790822, "timestamp": "10/15/2026 6:03:13 PM", "title": "Burglary Alarm"}
+{"agency": "MPD", "cfs_number": "2026-00043859", "latitude": 46.932662562913, "longitude": -114.096199757039, "timestamp": "10/15/2026 6:05:48 PM", "title": "Burglary Alarm"}
+{"agency": "MCSO", "cfs_number": "2026-00000365", "latitude": 46.8886795404332, "longitude": -113.835442819396, "timestamp": "10/15/2026 6:13:33 PM", "title": "Accident - Injury"}
+{"agency": "MCSO", "cfs_number": "2026-00003160", "latitude": 46.8886795404332, "longitude": -113.835442819396, "timestamp": "10/15/2026 6:13:33 PM", "title": "Accident - Injury"}
+{"agency": "MCSO", "cfs_number": "2026-00011525", "latitude": 46.8886795404332, "longitude": -113.835442819396, "timestamp": "10/15/2026 6:13:33 PM", "title": "Accident - Injury"}
+{"agency": "MCSO", "cfs_number": "2026-00022049", "latitude": 46.8886795404332, "longitude": -113.835442819396, "timestamp": "10/15/2026 6:13:33 PM", "title": "Accident - Injury"}
+{"agency": "MPD", "cfs_number": "2026-00043863", "latitude": 46.8841255585677, "longitude": -114.013053284249, "timestamp": "10/15/2026 6:19:13 PM", "title": "Drugs"}
+{"agency": "MPD", "cfs_number": "2026-00006337", "latitude": 46.8882115609451, "longitude": -114.04016577788, "timestamp": "10/15/2026 6:23:15 PM", "title": "Accident - Vehicle vs Pedestrian or Bike Injury"}
+{"agency": "MPD", "cfs_number": "2026-00011526", "latitude": 46.8882115609451, "longitude": -114.04016577788, "timestamp": "10/15/2026 6:23:15 PM", "title": "Accident - Vehicle vs Pedestrian or Bike Injury"}
+{"agency": "MPD", "cfs_number": "2026-00012101", "latitude": 46.8882115609451, "longitude": -114.04016577788, "timestamp": "10/15/2026 6:23:15 PM", "title": "Accident - Vehicle vs Pedestrian or Bike Injury"}
+{"agency": "MPD", "cfs_number": "2026-00043862", "latitude": 46.8882115609451, "longitude": -114.04016577788, "timestamp": "10/15/2026 6:23:15 PM", "title": "Accident - Vehicle vs Pedestrian or Bike Injury"}
+{"agency": "MCSO", "cfs_number": "2026-00022050", "latitude": 46.9534795646095, "longitude": -114.130071245726, "timestamp": "10/15/2026 6:30:20 PM", "title": "Person to be Removed"}
+{"agency": "MCSO", "cfs_number": "2026-00022051", "latitude": 47.0166965778422, "longitude": -113.458137230849, "timestamp": "10/15/2026 6:30:48 PM", "title": "Intimidation"}
+{"agency": "MPD", "cfs_number": "2026-00043864", "latitude": 46.8517435589628, "longitude": -113.990319295747, "timestamp": "10/15/2026 6:38:06 PM", "title": "Disturbance"}
+{"agency": "MPD", "cfs_number": "2026-00043865", "latitude": 46.917245560634, "longitude": -114.060865767493, "timestamp": "10/15/2026 6:44:57 PM", "title": "Domestic Animal"}
+{"agency": "MCSO", "cfs_number": "2026-00000776", "latitude": 47.0477095520154, "longitude": -114.081273235378, "timestamp": "10/15/2026 6:59:27 PM", "title": "Structure Fire"}
+{"agency": "MCSO", "cfs_number": "2026-00022052", "latitude": 47.0477095520154, "longitude": -114.081273235378, "timestamp": "10/15/2026 6:59:27 PM", "title": "Structure Fire"}
+{"agency": "MPD", "cfs_number": "2026-00043868", "latitude": 46.8719395614294, "longitude": -114.031629283075, "timestamp": "10/15/2026 7:07:38 PM", "title": "Parking/Junk Vehicle Complaint"}
+{"agency": "MCSO", "cfs_number": "2026-00012103", "latitude": 46.8666205606874, "longitude": -114.019834786598, "timestamp": "10/15/2026 7:11:08 PM", "title": "Person Needs Assistance"}
+{"agency": "MCSO", "cfs_number": "2026-00022053", "latitude": 46.8903175568665, "longitude": -114.001146285347, "timestamp": "10/15/2026 7:20:24 PM", "title": "Hazards"}
+{"agency": "MPD", "cfs_number": "2026-00043869", "latitude": 46.8867445611356, "longitude": -114.040863278051, "timestamp": "10/15/2026 7:28:14 PM", "title": "Accident - No Injury"}
+{"agency": "MCSO", "cfs_number": "2026-00022054", "latitude": 46.8728277154648, "longitude": -113.908183175023, "timestamp": "10/15/2026 7:41:04 PM", "title": "Loud Noise Complaint"}
+{"agency": "MPD", "cfs_number": "2026-00043871", "latitude": 46.839143562082, "longitude": -114.0111317942, "timestamp": "10/15/2026 7:44:53 PM", "title": "Intimidation"}
+{"agency": "MPD", "cfs_number": "2026-00006339", "latitude": 46.8673675605733, "longitude": -114.019308286546, "timestamp": "10/15/2026 7:45:51 PM", "title": "Medical Standby BLS"}
+{"agency": "MPD", "cfs_number": "2026-00011528", "latitude": 46.8673675605733, "longitude": -114.019308286546, "timestamp": "10/15/2026 7:45:51 PM", "title": "Medical Standby BLS"}
+{"agency": "MPD", "cfs_number": "2026-00012104", "latitude": 46.8673675605733, "longitude": -114.019308286546, "timestamp": "10/15/2026 7:45:51 PM", "title": "Medical Standby BLS"}
+{"agency": "MPD", "cfs_number": "2026-00043872", "latitude": 46.8673675605733, "longitude": -114.019308286546, "timestamp": "10/15/2026 7:45:51 PM", "title": "Medical Standby BLS"}
+{"agency": "MCSO", "cfs_number": "2026-00022055", "latitude": 46.9550545652377, "longitude": -114.137608743863, "timestamp": "10/15/2026 7:51:59 PM", "title": "Person Needs Assistance"}
+{"agency": "MPD", "cfs_number": "2026-00043873", "latitude": 46.859186561801, "longitude": -114.024847787162, "timestamp": "10/15/2026 7:52:26 PM", "title": "Disturbance"}
+{"agency": "MPD", "cfs_number": "2026-00043876", "latitude": 46.8458575630769, "longitude": -114.026625289633, "timestamp": "10/15/2026 8:00:46 PM", "title": "Suspicious Activity"}
+{"agency": "MPD", "cfs_number": "2026-00043877", "latitude": 46.8456595643159, "longitude": -114.038856287195, "timestamp": "10/15/2026 8:06:55 PM", "title": "Bar/Building Check"}
+{"agency": "MCSO", "cfs_number": "2026-00022056", "latitude": 46.7729845380612, "longitude": -113.714995868443, "timestamp": "10/15/2026 8:07:53 PM", "title": "Loud Noise Complaint"}
+{"agency": "MPD", "cfs_number": "2026-00006340", "latitude": 46.8673675605733, "longitude": -114.019308286546, "timestamp": "10/15/2026 8:08:31 PM", "title": "Drugs"}
+{"agency": "MPD", "cfs_number": "2026-00011529", "latitude": 46.8673675605733, "longitude": -114.019308286546, "timestamp": "10/15/2026 8:08:31 PM", "title": "Drugs"}
+{"agency": "MPD", "cfs_number": "2026-00012105", "latitude": 46.8673675605733, "longitude": -114.019308286546, "timestamp": "10/15/2026 8:08:31 PM", "title": "Drugs"}
+{"agency": "MPD", "cfs_number": "2026-00043878", "latitude": 46.8673675605733, "longitude": -114.019308286546, "timestamp": "10/15/2026 8:08:31 PM", "title": "Drugs"}
+{"agency": "MPD", "cfs_number": "2026-00043880", "latitude": 46.9194235628333, "longitude": -114.08458976222, "timestamp": "10/15/2026 8:23:50 PM", "title": "Moving Violation"}
+{"agency": "MCSO", "cfs_number": "2026-00022057", "latitude": 47.1313132542593, "longitude": -113.448352245247, "timestamp": "10/15/2026 8:24:34 PM", "title": "Person Needs Assistance"}
+{"agency": "MPD", "cfs_number": "2026-00043879", "latitude": 46.8458575630769, "longitude": -114.026625289633, "timestamp": "10/15/2026 8:28:06 PM", "title": "Person to be Removed"}
+{"agency": "MPD", "cfs_number": "2026-00022058", "latitude": 46.8780235579392, "longitude": -114.001749287842, "timestamp": "10/15/2026 8:36:39 PM", "title": "Pursuit/Reckless/Eluding"}
+{"agency": "MPD", "cfs_number": "2026-00043881", "latitude": 46.8780235579392, "longitude": -114.001749287842, "timestamp": "10/15/2026 8:36:39 PM", "title": "Pursuit/Reckless/Eluding"}
+{"agency": "MPD", "cfs_number": "2026-00043883", "latitude": 46.8738385576156, "longitude": -113.995066790088, "timestamp": "10/15/2026 8:51:31 PM", "title": "Person to be Removed"}
+{"agency": "MPD", "cfs_number": "2026-00043887", "latitude": 46.9180375582003, "longitude": -114.037227272117, "timestamp": "10/15/2026 8:59:50 PM", "title": "Disturbance"}
+{"agency": "MPD", "cfs_number": "2026-00006341", "latitude": 46.872857557574, "longitude": -113.993842790545, "timestamp": "10/15/2026 9:03:18 PM", "title": "Assist Fire"}
+{"agency": "MPD", "cfs_number": "2026-00011530", "latitude": 46.872857557574, "longitude": -113.993842790545, "timestamp": "10/15/2026 9:03:18 PM", "title": "Assist Fire"}
+{"agency": "MPD", "cfs_number": "2026-00012106", "latitude": 46.872857557574, "longitude": -113.993842790545, "timestamp": "10/15/2026 9:03:18 PM", "title": "Assist Fire"}
+{"agency": "MPD", "cfs_number": "2026-00043886", "latitude": 46.872857557574, "longitude": -113.993842790545, "timestamp": "10/15/2026 9:03:18 PM", "title": "Assist Fire"}
+{"agency": "MPD", "cfs_number": "2026-00043888", "latitude": 46.8504565657481, "longitude": -114.057130782473, "timestamp": "10/15/2026 9:16:21 PM", "title": "Accident - No Injury"}
+{"agency": "MPD", "cfs_number": "2026-00043889", "latitude": 46.8657835611223, "longitude": -114.023493286034, "timestamp": "10/15/2026 9:21:39 PM", "title": "Loud Noise Complaint"}
+{"agency": "MPD", "cfs_number": "2026-00043890", "latitude": 46.848728565727, "longitude": -114.055497283171, "timestamp": "10/15/2026 9:27:24 PM", "title": "Accident - No Injury"}
+{"agency": "MPD", "cfs_number": "2026-00043891", "latitude": 46.8870955613581, "longitude": -114.043374277467, "timestamp": "10/15/2026 9:54:38 PM", "title": "Suspicious Activity"}
+{"agency": "MPD", "cfs_number": "2026-00043892", "latitude": 46.848584566277, "longitude": -114.060879282112, "timestamp": "10/15/2026 10:02:19 PM", "title": "Hazards"}
+{"agency": "MCSO", "cfs_number": "2026-00022061", "latitude": 46.9864195670663, "longitude": -114.181258728305, "timestamp": "10/15/2026 10:14:43 PM", "title": "Driving Under the Influence"}
+{"agency": "MPD", "cfs_number": "2026-00043894", "latitude": 46.8698255378256, "longitude": -114.038783719498, "timestamp": "10/15/2026 10:18:51 PM", "title": "Welfare Check"}
+{"agency": "MPD", "cfs_number": "2026-00043895", "latitude": 46.8829555575312, "longitude": -114.001731286796, "timestamp": "10/15/2026 10:36:10 PM", "title": "Welfare Check"}
+{"agency": "MPD", "cfs_number": "2026-00043897", "latitude": 46.8318085663008, "longitude": -114.047298288425, "timestamp": "10/15/2026 10:45:04 PM", "title": "Shoplifting"}
+{"agency": "MPD", "cfs_number": "2026-00043899", "latitude": 46.8694465577588, "longitude": -113.992879791466, "timestamp": "10/15/2026 11:18:27 PM", "title": "Suspicious Activity"}
